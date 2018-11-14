@@ -13,7 +13,8 @@ namespace ceat
     public partial class ViewController : NSViewController
     {
         // FIXME: Should be initialized at the `ViewController` entry-point
-        readonly FileManagerWrapper FileManager = new FileManagerWrapper(new NSFileManager());
+        public readonly FileManagerWrapper FileManager = new FileManagerWrapper(new NSFileManager());
+        public readonly AlgorithmService algorithmService = new AlgorithmService();
         private WorkMode ApplicationWorkMode;
 
         public ViewController(IntPtr handle) : base(handle) { }
@@ -53,16 +54,20 @@ namespace ceat
 
         partial void ProcessDataClicked(NSButton sender)
         {
-            //ProcessDataPreparing();
-            ProcessDataPreparing_OOP();
+            var unexplainedVarianceProportionMatrix = new UnexplainedVarianceProportionMatrix(
+                new UnexplainedVarianceProportionList(
+                    ((LoadedDataOutlineDataSource)LoadedDataOutlineView.DataSource).RootDataDir.Directories
+                ),
+                ((LoadedDataOutlineDataSource)LoadedDataOutlineView.DataSource).RootDataDir.Directories.Count
+            );
 
             switch (ApplicationWorkMode)
             {
                 case WorkMode.SemiAutomatic:
-                    ShowModelsPairScreen();
+                    ShowModelsPairScreen(unexplainedVarianceProportionMatrix);
                     break;
                 case WorkMode.Automatic:
-                    ShowCauseEffectMatrixScreen();
+                    ShowCauseEffectMatrixScreen(unexplainedVarianceProportionMatrix);
                     break;
             }
         }
@@ -82,74 +87,19 @@ namespace ceat
         #endregion Xamarin.Mac Partial Methods
 
         #region Private Methods
-        // TODO: Non-OO approach, look through at the `ProcessDataPreparing_OOP()`
-        private void ProcessDataPreparing()
+        void ShowModelsPairScreen(UnexplainedVarianceProportionMatrix unexplainedVarianceProportionMatrix)
         {
-            var dataSource = (LoadedDataOutlineDataSource)LoadedDataOutlineView.DataSource;
-            double[,] UVPMatrix = new double[dataSource.RootDataDir.Directories.Count, dataSource.RootDataDir.Directories.Count];
-
-            for (int i = 0; i < dataSource.RootDataDir.Directories.Count; i++)
-            {
-                for (int j = 0; j < dataSource.RootDataDir.Directories[i].ExcelFiles.Count; j++)
-                {
-                    var errorValue = new WorkedPointsErrorValue(dataSource.RootDataDir.Directories[i].ExcelFiles[j].ActiveSheet).Value;
-                    int row = new OutputParameter(dataSource.RootDataDir.Directories[i].ExcelFiles[j].OutputParameter).IntegerValue;
-                    int col = new InputParameter(dataSource.RootDataDir.Directories[i].ExcelFiles[j].InputParameters[0]).IntegerValue;
-                    UVPMatrix[row - 1, col - 1] = errorValue;
-                }
-            }
-
-            string[,] CAEMatrix = new string[dataSource.RootDataDir.Directories.Count, dataSource.RootDataDir.Directories.Count];
-            for (int i = 0; i < dataSource.RootDataDir.Directories.Count; i++)
-            {
-                for (int j = 0; j < dataSource.RootDataDir.Directories.Count; j++)
-                {
-                    if (i != j)
-                    {
-                        var comparingResult = new AlgorithmService().CompareConcurencyModels(UVPMatrix[i, j], UVPMatrix[j, i]);
-                        CAEMatrix[i, j] = Convert.ToString(comparingResult.Item1);
-                        CAEMatrix[j, i] = Convert.ToString(comparingResult.Item2);
-                    }
-                    else
-                    {
-                        CAEMatrix[i, j] = "-";
-                    }
-                }
-            }
+            /// TODO: Show ModelsPair Screen with `UnexplainedVarianceProportionMatrix` dependency
         }
 
-        private void ProcessDataPreparing_OOP() 
+        void ShowCauseEffectMatrixScreen(UnexplainedVarianceProportionMatrix unexplainedVarianceProportionMatrix)
         {
+            var causalRelationshipMatrix = new CausalRelationshipMatrix(
+                unexplainedVarianceProportionMatrix,
+                algorithmService
+            );
 
-            /// TODO: I'm not sure that `CausalRelationshipPairsSet` instance should be last 
-            /// and it should have `Matrix` property. Maybe it'll be better to have `CausalRelationshipPairsMatrix` instance,
-            /// which will obtain two (or more) constructor arguments: 
-            /// CausalRelationshipPairsSet, dataSource->directories (or directories.Count only)
-            var causalRelationshipPairsMatrix = new CausalRelationshipPairsSet(
-                new UnexplainedVarianceProportionList(
-                    ((LoadedDataOutlineDataSource)LoadedDataOutlineView.DataSource).RootDataDir.Directories
-                ).Value
-            ).Matrix;
-
-            Console.WriteLine("Causal Relationship Pairs Matrix");
-            for (int i = 0; i < causalRelationshipPairsMatrix.GetLength(0); i++)
-            {
-                for (int j = 0; j < causalRelationshipPairsMatrix.GetLength(1); j++)
-                {
-                    Console.Write($"{causalRelationshipPairsMatrix[i, j]} ");
-                }
-                Console.WriteLine();
-            }
-        }
-
-        void ShowModelsPairScreen()
-        {
-            // TODO: ...
-        }
-
-        void ShowCauseEffectMatrixScreen()
-        {
-            // TODO: ...
+            /// TODO: Show CauseEffectMatrix Screen with `CausalRelationshipPairsSet` dependency
         }
         #endregion
     }

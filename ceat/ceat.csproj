@@ -111,9 +111,10 @@
     <Compile Include="Sources\Models\InputParameter.cs" />
     <Compile Include="Sources\Models\OutputParameter.cs" />
     <Compile Include="Sources\Models\UnexplainedVarianceProportion.cs" />
-    <Compile Include="Sources\Models\CausalRelationshipPairsSet.cs" />
     <Compile Include="Sources\Models\CausalRelationshipPair.cs" />
     <Compile Include="Sources\Models\UnexplainedVarianceProportionList.cs" />
+    <Compile Include="Sources\Models\UnexplainedVarianceProportionMatrix.cs" />
+    <Compile Include="Sources\Models\CausalRelationshipMatrix.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Sources\Main.storyboard" />
