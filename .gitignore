@@ -25,3 +25,5 @@ obj/
 *.VisualState.xml
 TestResult.xml
 
+### Project-specific files ###
+GIT_WORK_TREE/bin/
