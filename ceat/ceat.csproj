@@ -117,13 +117,13 @@
     <Compile Include="Sources\ViewControllers\HomeScreenViewController.designer.cs">
       <DependentUpon>HomeScreenViewController.cs</DependentUpon>
     </Compile>
-    <Compile Include="Sources\ModelsPairViewController.cs" />
-    <Compile Include="Sources\ModelsPairViewController.designer.cs">
-      <DependentUpon>ModelsPairViewController.cs</DependentUpon>
+    <Compile Include="Sources\ViewControllers\ModelsComparingViewController.cs" />
+    <Compile Include="Sources\ViewControllers\ModelsComparingViewController.designer.cs">
+      <DependentUpon>ModelsComparingViewController.cs</DependentUpon>
     </Compile>
-    <Compile Include="Sources\CauseEffecetMatrixViewController.cs" />
-    <Compile Include="Sources\CauseEffecetMatrixViewController.designer.cs">
-      <DependentUpon>CauseEffecetMatrixViewController.cs</DependentUpon>
+    <Compile Include="Sources\ViewControllers\CauseEffectMatrixViewController.cs" />
+    <Compile Include="Sources\ViewControllers\CauseEffectMatrixViewController.designer.cs">
+      <DependentUpon>CauseEffectMatrixViewController.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

@@ -669,10 +669,10 @@
             </objects>
             <point key="canvasLocation" x="75" y="250"/>
         </scene>
-        <!--Home Screen View Controller-->
+        <!--HomeScreenViewController-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
-                <viewController id="XfG-lQ-9wD" customClass="HomeScreenViewController" sceneMemberID="viewController">
+                <viewController title="HomeScreenViewController" id="XfG-lQ-9wD" customClass="HomeScreenViewController" sceneMemberID="viewController">
                     <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl">
                         <rect key="frame" x="0.0" y="0.0" width="540" height="317"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -868,10 +868,10 @@
             </objects>
             <point key="canvasLocation" x="75" y="678.5"/>
         </scene>
-        <!--Models Pair View Controller-->
+        <!--ModelsComparingViewController-->
         <scene sceneID="7H4-Bc-sZJ">
             <objects>
-                <viewController title="Models Pair View Controller" storyboardIdentifier="ModelPairViewController" id="lqM-zK-YPw" customClass="ModelsPairViewController" sceneMemberID="viewController">
+                <viewController title="ModelsComparingViewController" storyboardIdentifier="ModelPairViewController" id="lqM-zK-YPw" customClass="ModelsComparingViewController" sceneMemberID="viewController">
                     <view key="view" id="xFX-SO-BNb">
                         <rect key="frame" x="0.0" y="0.0" width="688" height="200"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1106,10 +1106,10 @@
             </objects>
             <point key="canvasLocation" x="872" y="250"/>
         </scene>
-        <!--Cause Effecet Matrix ViewController-->
+        <!--CauseEffectMatrixViewController-->
         <scene sceneID="Cxm-FR-hyN">
             <objects>
-                <viewController title="Cause Effecet Matrix ViewController" storyboardIdentifier="CauseEffecetMatrixViewController" id="vJi-Tl-oER" customClass="CauseEffecetMatrixViewController" sceneMemberID="viewController">
+                <viewController title="CauseEffectMatrixViewController" storyboardIdentifier="CauseEffecetMatrixViewController" id="vJi-Tl-oER" sceneMemberID="viewController">
                     <view key="view" id="2vF-Lb-TFH">
                         <rect key="frame" x="0.0" y="0.0" width="619" height="315"/>
                         <autoresizingMask key="autoresizingMask"/>
