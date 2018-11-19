@@ -81,6 +81,8 @@
     <Folder Include="Sources\Application\" />
     <Folder Include="Sources\Services\" />
     <Folder Include="Sources\Models\" />
+    <Folder Include="Sources\ViewControllers\" />
+    <Folder Include="Sources\ViewControllers\LoadedData\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -90,10 +92,6 @@
   <ItemGroup>
     <Compile Include="Sources\Application\AppDelegate.cs" />
     <Compile Include="Sources\Application\Main.cs" />
-    <Compile Include="Sources\ViewController.cs" />
-    <Compile Include="Sources\ViewController.designer.cs">
-      <DependentUpon>ViewController.cs</DependentUpon>
-    </Compile>
     <Compile Include="Sources\Services\FileManagerWrapper.cs" />
     <Compile Include="Sources\Models\ExcelDataModel.cs" />
     <Compile Include="Sources\Models\AnalyticalExpression.cs" />
@@ -102,8 +100,6 @@
     <Compile Include="Sources\Models\File.cs" />
     <Compile Include="Sources\Models\ExcelFile.cs" />
     <Compile Include="Sources\Models\ParametersModel.cs" />
-    <Compile Include="Sources\LoadedDataOutlineDataSource.cs" />
-    <Compile Include="Sources\LoadedDataOutlineDelegate.cs" />
     <Compile Include="Sources\Models\RootDirectory.cs" />
     <Compile Include="Sources\Models\WorkMode.cs" />
     <Compile Include="Sources\Models\ParametersComparingModel.cs" />
@@ -115,6 +111,20 @@
     <Compile Include="Sources\Models\UnexplainedVarianceProportionList.cs" />
     <Compile Include="Sources\Models\UnexplainedVarianceProportionMatrix.cs" />
     <Compile Include="Sources\Models\CausalRelationshipMatrix.cs" />
+    <Compile Include="Sources\ViewControllers\LoadedData\LoadedDataOutlineDataSource.cs" />
+    <Compile Include="Sources\ViewControllers\LoadedData\LoadedDataOutlineDelegate.cs" />
+    <Compile Include="Sources\ViewControllers\HomeScreenViewController.cs" />
+    <Compile Include="Sources\ViewControllers\HomeScreenViewController.designer.cs">
+      <DependentUpon>HomeScreenViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sources\ModelsPairViewController.cs" />
+    <Compile Include="Sources\ModelsPairViewController.designer.cs">
+      <DependentUpon>ModelsPairViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sources\CauseEffecetMatrixViewController.cs" />
+    <Compile Include="Sources\CauseEffecetMatrixViewController.designer.cs">
+      <DependentUpon>CauseEffecetMatrixViewController.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Sources\Main.storyboard" />

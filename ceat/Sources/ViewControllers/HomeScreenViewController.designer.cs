@@ -7,10 +7,10 @@
 using Foundation;
 using System.CodeDom.Compiler;
 
-namespace ceat
+namespace ceat.Sources.ViewControllers
 {
-	[Register ("ViewController")]
-	partial class ViewController
+	[Register ("HomeScreenViewController")]
+	partial class HomeScreenViewController
 	{
 		[Outlet]
 		AppKit.NSButton LoadDataButton { get; set; }
@@ -21,8 +21,8 @@ namespace ceat
 		[Outlet]
 		AppKit.NSButton ProcessDataButton { get; set; }
 
-		[Action ("ChangeWorkMode:")]
-		partial void ChangeWorkMode (AppKit.NSButton sender);
+		[Action ("ChangeWorkModeClicked:")]
+		partial void ChangeWorkModeClicked (AppKit.NSButton sender);
 
 		[Action ("LoadDataClicked:")]
 		partial void LoadDataClicked (AppKit.NSButton sender);
@@ -37,14 +37,14 @@ namespace ceat
 				LoadDataButton = null;
 			}
 
-			if (LoadedDataOutlineView != null) {
-				LoadedDataOutlineView.Dispose ();
-				LoadedDataOutlineView = null;
-			}
-
 			if (ProcessDataButton != null) {
 				ProcessDataButton.Dispose ();
 				ProcessDataButton = null;
+			}
+
+			if (LoadedDataOutlineView != null) {
+				LoadedDataOutlineView.Dispose ();
+				LoadedDataOutlineView = null;
 			}
 		}
 	}
