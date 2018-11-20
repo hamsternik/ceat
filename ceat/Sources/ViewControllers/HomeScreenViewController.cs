@@ -15,15 +15,18 @@ namespace ceat.Sources.ViewControllers
         // FIXME: Should be initialized at the `ViewController` entry-point
         public readonly FileManagerWrapper FileManager = new FileManagerWrapper(new NSFileManager());
         public readonly AlgorithmService algorithmService = new AlgorithmService();
-        private WorkMode ApplicationWorkMode;
 
-        HomeScreenViewController (IntPtr handle) : base (handle) { }
+        WorkMode ApplicationWorkMode;
+        NSWindowController ModelsComparingWindowController;
+        NSWindowController CauseEffectMatrixWindowController;
+
+        #region View Controller Life Cycle
+
+        HomeScreenViewController(IntPtr handle) : base(handle) { }
         public override void ViewDidLoad() { base.ViewDidLoad(); }
-        public override NSObject RepresentedObject
-        {
-            get { return base.RepresentedObject; }
-            set { base.RepresentedObject = value; }
-        }
+
+        #endregion
+
 
         #region Xamarin.Mac Partial Methods
 
@@ -92,7 +95,11 @@ namespace ceat.Sources.ViewControllers
 
         void ShowModelsPairScreen(UnexplainedVarianceProportionMatrix unexplainedVarianceProportionMatrix)
         {
-            /// TODO: Show ModelsPair Screen with `UnexplainedVarianceProportionMatrix` dependency
+            ModelsComparingWindowController = (NSWindowController)Storyboard.InstantiateControllerWithIdentifier("ModelsComparingWindowController");
+            var viewController = (ModelsComparingViewController)ModelsComparingWindowController.Window.ContentViewController;
+            viewController.ViewModel = new ModelsComparingViewModel(unexplainedVarianceProportionMatrix, algorithmService);
+
+            ModelsComparingWindowController.ShowWindow(this);
         }
 
         void ShowCauseEffectMatrixScreen(UnexplainedVarianceProportionMatrix unexplainedVarianceProportionMatrix)
@@ -102,7 +109,12 @@ namespace ceat.Sources.ViewControllers
                 algorithmService
             );
 
-            /// TODO: Show CauseEffectMatrix Screen with `CausalRelationshipPairsSet` dependency
+            CauseEffectMatrixWindowController = (NSWindowController)Storyboard.InstantiateControllerWithIdentifier("CauseEffectMatrixWindowController");
+            // TODO: `CauseEffectMatrixWindowController` returns NPE !!!
+            var viewController = (CauseEffectMatrixViewController)ModelsComparingWindowController.Window.ContentViewController;
+            viewController.ViewModel = new CauseEffectMatrixViewModel(causalRelationshipMatrix, algorithmService);
+
+            CauseEffectMatrixWindowController.ShowWindow(this);
         }
 
         #endregion
