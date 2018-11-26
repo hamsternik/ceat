@@ -797,7 +797,7 @@
                                             <stackView distribution="fill" orientation="vertical" alignment="leading" spacing="6" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bFu-Rf-Rro">
                                                 <rect key="frame" x="0.0" y="0.0" width="154" height="38"/>
                                                 <subviews>
-                                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="d8l-f1-2Wi">
+                                                    <button identifier="Auto" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="d8l-f1-2Wi">
                                                         <rect key="frame" x="-1" y="21" width="131" height="18"/>
                                                         <buttonCell key="cell" type="radio" title=" Автоматический" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="Lfv-d2-H3P">
                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -807,7 +807,7 @@
                                                             <action selector="ChangeWorkModeClicked:" target="XfG-lQ-9wD" id="mRX-Sd-WFd"/>
                                                         </connections>
                                                     </button>
-                                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="qe4-yf-0fX">
+                                                    <button identifier="SemiAuto" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="qe4-yf-0fX">
                                                         <rect key="frame" x="-1" y="-1" width="157" height="18"/>
                                                         <buttonCell key="cell" type="radio" title="Полуавтоматический" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="FJo-uQ-4qv">
                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -871,7 +871,7 @@
         <!--ModelsComparingViewController-->
         <scene sceneID="7H4-Bc-sZJ">
             <objects>
-                <viewController title="ModelsComparingViewController" storyboardIdentifier="ModelPairViewController" id="lqM-zK-YPw" customClass="ModelsComparingViewController" sceneMemberID="viewController">
+                <viewController title="ModelsComparingViewController" storyboardIdentifier="ModelsComparingViewController" id="lqM-zK-YPw" customClass="ModelsComparingViewController" sceneMemberID="viewController">
                     <view key="view" id="xFX-SO-BNb">
                         <rect key="frame" x="0.0" y="0.0" width="688" height="200"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1109,7 +1109,7 @@
         <!--CauseEffectMatrixViewController-->
         <scene sceneID="Cxm-FR-hyN">
             <objects>
-                <viewController title="CauseEffectMatrixViewController" storyboardIdentifier="CauseEffecetMatrixViewController" id="vJi-Tl-oER" sceneMemberID="viewController">
+                <viewController title="CauseEffectMatrixViewController" storyboardIdentifier="CauseEffectMatrixViewController" id="vJi-Tl-oER" customClass="CauseEffectMatrixViewController" sceneMemberID="viewController">
                     <view key="view" id="2vF-Lb-TFH">
                         <rect key="frame" x="0.0" y="0.0" width="619" height="315"/>
                         <autoresizingMask key="autoresizingMask"/>

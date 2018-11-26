@@ -67,11 +67,11 @@ namespace ceat.Sources.ViewControllers
 
             switch (ApplicationWorkMode)
             {
-                case WorkMode.SemiAutomatic:
-                    ShowModelsPairScreen(unexplainedVarianceProportionMatrix);
-                    break;
                 case WorkMode.Automatic:
                     ShowCauseEffectMatrixScreen(unexplainedVarianceProportionMatrix);
+                    break;
+                case WorkMode.SemiAutomatic:
+                    ShowModelsPairScreen(unexplainedVarianceProportionMatrix);
                     break;
             }
         }
@@ -95,8 +95,8 @@ namespace ceat.Sources.ViewControllers
 
         void ShowModelsPairScreen(UnexplainedVarianceProportionMatrix unexplainedVarianceProportionMatrix)
         {
-            ModelsComparingWindowController = (NSWindowController)Storyboard.InstantiateControllerWithIdentifier("ModelsComparingWindowController");
-            var viewController = (ModelsComparingViewController)ModelsComparingWindowController.Window.ContentViewController;
+            ModelsComparingWindowController = (NSWindowController) Storyboard.InstantiateControllerWithIdentifier("ModelsPairWindowController");
+            var viewController = (ModelsComparingViewController) ModelsComparingWindowController.Window.ContentViewController;
             viewController.ViewModel = new ModelsComparingViewModel(unexplainedVarianceProportionMatrix, algorithmService);
 
             ModelsComparingWindowController.ShowWindow(this);
@@ -109,15 +109,13 @@ namespace ceat.Sources.ViewControllers
                 algorithmService
             );
 
-            CauseEffectMatrixWindowController = (NSWindowController)Storyboard.InstantiateControllerWithIdentifier("CauseEffectMatrixWindowController");
-            // TODO: `CauseEffectMatrixWindowController` returns NPE !!!
-            var viewController = (CauseEffectMatrixViewController)ModelsComparingWindowController.Window.ContentViewController;
+            CauseEffectMatrixWindowController = (NSWindowController) Storyboard.InstantiateControllerWithIdentifier("CauseEffectMatrixWindowController");
+            var viewController = (CauseEffectMatrixViewController) CauseEffectMatrixWindowController.Window.ContentViewController;
             viewController.ViewModel = new CauseEffectMatrixViewModel(causalRelationshipMatrix, algorithmService);
 
             CauseEffectMatrixWindowController.ShowWindow(this);
         }
 
         #endregion
-
     }
 }
