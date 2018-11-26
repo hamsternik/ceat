@@ -1,5 +1,4 @@
-﻿using Foundation;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace ceat.Sources.Models
 {

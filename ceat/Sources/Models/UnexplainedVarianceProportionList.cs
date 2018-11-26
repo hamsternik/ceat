@@ -13,9 +13,10 @@ namespace ceat.Sources.Models
                 for (int j = 0; j < directories[i].ExcelFiles.Count; j++)
                 {
                     Value.Add(new UnexplainedVarianceProportion(
-                        new WorkedPointsErrorValue(directories[i].ExcelFiles[j].ActiveSheet),
                         new InputParameter(directories[i].ExcelFiles[j].InputParameters[0]),
-                        new OutputParameter(directories[i].ExcelFiles[j].OutputParameter)
+                        new OutputParameter(directories[i].ExcelFiles[j].OutputParameter),
+                        new AnalyticalExpression(directories[i].ExcelFiles[j].ActiveSheet),
+                        new WorkedPointsErrorValue(directories[i].ExcelFiles[j].ActiveSheet)
                     ));
                 }
             }

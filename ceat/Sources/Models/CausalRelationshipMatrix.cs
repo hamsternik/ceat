@@ -31,6 +31,8 @@ namespace ceat.Sources.Models
             }
         }
 
+        public string this[int row, int column] => this.Value[row, column];
+
         public void Print()
         {
             Console.WriteLine("-=== Causal Relationship Matrix ===-");

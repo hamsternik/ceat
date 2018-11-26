@@ -885,17 +885,20 @@
                                             <box horizontalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="ua5-XL-TNd">
                                                 <rect key="frame" x="341" y="0.0" width="5" height="117"/>
                                             </box>
-                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="m8q-UX-Dkb">
-                                                <rect key="frame" x="14" y="51" width="66" height="17"/>
-                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Sigma_i = " id="GMk-Wv-NKG">
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Tj-9w-wR8">
+                                                <rect key="frame" x="14" y="84" width="326" height="17"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="322" id="heO-F5-7sR"/>
+                                                </constraints>
+                                                <textFieldCell key="cell" lineBreakMode="charWrapping" sendsActionOnEndEditing="YES" title="X_i = findModel(X_j)" id="GPr-Q9-3Bm">
                                                     <font key="font" metaFont="system"/>
                                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                 </textFieldCell>
                                             </textField>
-                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="2Tj-9w-wR8">
-                                                <rect key="frame" x="14" y="84" width="326" height="17"/>
-                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="X_i = findModel(X_j)" id="GPr-Q9-3Bm">
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="m8q-UX-Dkb">
+                                                <rect key="frame" x="14" y="51" width="315" height="17"/>
+                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Sigma_i = " id="GMk-Wv-NKG">
                                                     <font key="font" metaFont="system"/>
                                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -903,10 +906,10 @@
                                             </textField>
                                         </subviews>
                                         <constraints>
+                                            <constraint firstItem="2Tj-9w-wR8" firstAttribute="leading" secondItem="4xH-cV-YqC" secondAttribute="leading" constant="16" id="31G-9J-soR"/>
                                             <constraint firstItem="m8q-UX-Dkb" firstAttribute="top" secondItem="2Tj-9w-wR8" secondAttribute="bottom" constant="16" id="7Zu-XX-fkU"/>
                                             <constraint firstItem="m8q-UX-Dkb" firstAttribute="leading" secondItem="4xH-cV-YqC" secondAttribute="leading" constant="16" id="Ltv-Gc-A47"/>
-                                            <constraint firstItem="ua5-XL-TNd" firstAttribute="leading" secondItem="2Tj-9w-wR8" secondAttribute="trailing" constant="5" id="Mb5-GU-NQ1"/>
-                                            <constraint firstItem="2Tj-9w-wR8" firstAttribute="leading" secondItem="4xH-cV-YqC" secondAttribute="leading" constant="16" id="VTK-wS-IIp"/>
+                                            <constraint firstItem="ua5-XL-TNd" firstAttribute="leading" secondItem="m8q-UX-Dkb" secondAttribute="trailing" constant="16" id="WNM-9d-gHs"/>
                                             <constraint firstItem="ua5-XL-TNd" firstAttribute="top" secondItem="4xH-cV-YqC" secondAttribute="top" id="Wf9-wp-c3M"/>
                                             <constraint firstAttribute="trailing" secondItem="ua5-XL-TNd" secondAttribute="trailing" id="jM4-77-jlp"/>
                                             <constraint firstItem="2Tj-9w-wR8" firstAttribute="top" secondItem="4xH-cV-YqC" secondAttribute="top" constant="16" id="vUg-36-ujS"/>
@@ -916,17 +919,20 @@
                                     <customView translatesAutoresizingMaskIntoConstraints="NO" id="UWx-VY-eNX" userLabel="X_j Container View">
                                         <rect key="frame" x="344" y="0.0" width="344" height="117"/>
                                         <subviews>
-                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="OKk-C2-DYb">
-                                                <rect key="frame" x="14" y="51" width="68" height="17"/>
-                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Sigma_j = " id="xE1-aF-Bsf">
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xVQ-Hw-t4U" userLabel="X_j find Model Label">
+                                                <rect key="frame" x="14" y="84" width="327" height="17"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="323" id="4dc-PB-f03"/>
+                                                </constraints>
+                                                <textFieldCell key="cell" lineBreakMode="charWrapping" sendsActionOnEndEditing="YES" title="X_j = findModel(X_i)" id="zYF-hR-LZd">
                                                     <font key="font" metaFont="system"/>
                                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                 </textFieldCell>
                                             </textField>
-                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="xVQ-Hw-t4U" userLabel="X_j find Model Label">
-                                                <rect key="frame" x="14" y="84" width="327" height="17"/>
-                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="X_j = findModel(X_i)" id="zYF-hR-LZd">
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="OKk-C2-DYb">
+                                                <rect key="frame" x="14" y="51" width="316" height="17"/>
+                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Sigma_j = " id="xE1-aF-Bsf">
                                                     <font key="font" metaFont="system"/>
                                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -934,10 +940,10 @@
                                             </textField>
                                         </subviews>
                                         <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="OKk-C2-DYb" secondAttribute="trailing" constant="16" id="Kuz-gy-KhO"/>
                                             <constraint firstItem="OKk-C2-DYb" firstAttribute="top" secondItem="xVQ-Hw-t4U" secondAttribute="bottom" constant="16" id="Ndt-sq-ONw"/>
                                             <constraint firstItem="xVQ-Hw-t4U" firstAttribute="top" secondItem="UWx-VY-eNX" secondAttribute="top" constant="16" id="ZgG-Jq-WTi"/>
                                             <constraint firstItem="xVQ-Hw-t4U" firstAttribute="leading" secondItem="UWx-VY-eNX" secondAttribute="leading" constant="16" id="bNx-vZ-2mg"/>
-                                            <constraint firstAttribute="trailing" secondItem="xVQ-Hw-t4U" secondAttribute="trailing" constant="5" id="k6J-Re-n7c"/>
                                             <constraint firstItem="OKk-C2-DYb" firstAttribute="leading" secondItem="UWx-VY-eNX" secondAttribute="leading" constant="16" id="pRl-Et-jZE"/>
                                         </constraints>
                                     </customView>
@@ -988,13 +994,13 @@
                                 <rect key="frame" x="0.0" y="0.0" width="688" height="48"/>
                                 <subviews>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1Eq-EN-JFk">
-                                        <rect key="frame" x="255" y="7" width="162" height="32"/>
+                                        <rect key="frame" x="263" y="7" width="162" height="32"/>
                                         <buttonCell key="cell" type="push" title="Cause-Effect Matrix" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="z6N-9b-oNi">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
                                         <connections>
-                                            <action selector="showResults:" target="lqM-zK-YPw" id="UvT-c0-X0U"/>
+                                            <action selector="ShowResults:" target="lqM-zK-YPw" id="QuK-yK-7yT"/>
                                         </connections>
                                     </button>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="PKe-Fb-o7A" userLabel="Next Button">
@@ -1007,11 +1013,11 @@
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
                                         <connections>
-                                            <action selector="moveNext:" target="lqM-zK-YPw" id="ymS-He-bbX"/>
+                                            <action selector="ShowNext:" target="lqM-zK-YPw" id="2aA-CD-Ac9"/>
                                         </connections>
                                     </button>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="FXy-DX-Ybo" userLabel="Plot Button">
-                                        <rect key="frame" x="523" y="7" width="74" height="32"/>
+                                        <rect key="frame" x="10" y="7" width="74" height="32"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="62" id="Mf7-OP-SHt"/>
                                         </constraints>
@@ -1020,20 +1026,7 @@
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
                                         <connections>
-                                            <action selector="makePlot:" target="lqM-zK-YPw" id="zmT-kJ-lFq"/>
-                                        </connections>
-                                    </button>
-                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="RAj-xJ-NYY" userLabel="Close Button">
-                                        <rect key="frame" x="10" y="7" width="87" height="32"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="75" id="V77-zR-H4p"/>
-                                        </constraints>
-                                        <buttonCell key="cell" type="push" title="Close" bezelStyle="rounded" image="exit" imagePosition="left" alignment="left" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="NYl-2k-Hb5">
-                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                            <font key="font" metaFont="system"/>
-                                        </buttonCell>
-                                        <connections>
-                                            <action selector="closeWindowController:" target="lqM-zK-YPw" id="x4B-sd-51P"/>
+                                            <action selector="DrawPlot:" target="lqM-zK-YPw" id="pP8-dB-VS9"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -1042,11 +1035,9 @@
                                     <constraint firstAttribute="trailing" secondItem="PKe-Fb-o7A" secondAttribute="trailing" constant="16" id="1jf-eO-9zu"/>
                                     <constraint firstItem="1Eq-EN-JFk" firstAttribute="centerY" secondItem="0wp-2g-rIM" secondAttribute="centerY" id="9Ek-4g-Mel"/>
                                     <constraint firstItem="PKe-Fb-o7A" firstAttribute="centerY" secondItem="0wp-2g-rIM" secondAttribute="centerY" id="Ckq-U9-spE"/>
-                                    <constraint firstItem="PKe-Fb-o7A" firstAttribute="leading" secondItem="FXy-DX-Ybo" secondAttribute="trailing" constant="16" id="K9U-Op-BuQ"/>
-                                    <constraint firstItem="RAj-xJ-NYY" firstAttribute="centerY" secondItem="0wp-2g-rIM" secondAttribute="centerY" id="M3L-W2-YlX"/>
+                                    <constraint firstItem="FXy-DX-Ybo" firstAttribute="leading" secondItem="0wp-2g-rIM" secondAttribute="leading" constant="16" id="Hc6-bb-Yec"/>
                                     <constraint firstAttribute="height" constant="48" id="U24-4T-IKe"/>
-                                    <constraint firstItem="1Eq-EN-JFk" firstAttribute="centerX" secondItem="0wp-2g-rIM" secondAttribute="centerX" constant="-8" id="dOf-sU-wnX"/>
-                                    <constraint firstItem="RAj-xJ-NYY" firstAttribute="leading" secondItem="0wp-2g-rIM" secondAttribute="leading" constant="16" id="sxY-BN-UCa"/>
+                                    <constraint firstItem="1Eq-EN-JFk" firstAttribute="centerX" secondItem="0wp-2g-rIM" secondAttribute="centerX" id="dOf-sU-wnX"/>
                                 </constraints>
                             </customView>
                             <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="rNw-WC-id3" userLabel="Lower Horizontal Line">
@@ -1073,11 +1064,11 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="Sigma_i_Label" destination="m8q-UX-Dkb" id="ns3-Ih-0fh"/>
-                        <outlet property="Sigma_j_Label" destination="OKk-C2-DYb" id="DHb-tA-QDZ"/>
-                        <outlet property="SummaryResultLabel" destination="gGu-gw-Rz8" id="FrZ-zE-8J5"/>
-                        <outlet property="X_i_findModelLabel" destination="2Tj-9w-wR8" id="bMs-ad-Ucj"/>
-                        <outlet property="X_j_findModelLabel" destination="xVQ-Hw-t4U" id="Lbe-Eu-tU5"/>
+                        <outlet property="Sigma_i_Label" destination="m8q-UX-Dkb" id="NjO-bG-Ezh"/>
+                        <outlet property="Sigma_j_Label" destination="OKk-C2-DYb" id="aJy-Hj-HkL"/>
+                        <outlet property="SummaryResultLabel" destination="gGu-gw-Rz8" id="ONF-ar-yfq"/>
+                        <outlet property="X_i_findModelLabel" destination="2Tj-9w-wR8" id="htL-gK-aiu"/>
+                        <outlet property="X_j_findModelLabel" destination="xVQ-Hw-t4U" id="lam-4o-QDd"/>
                     </connections>
                 </viewController>
                 <customObject id="fAj-Zm-dhA" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -1152,9 +1143,6 @@
                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                     <font key="font" metaFont="system"/>
                                                 </buttonCell>
-                                                <connections>
-                                                    <action selector="showExogenousParameters:" target="vJi-Tl-oER" id="9ez-hc-baa"/>
-                                                </connections>
                                             </button>
                                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Sbb-Qk-hsO" userLabel="Show Dependecy Graph Button">
                                                 <rect key="frame" x="46" y="45" width="84" height="32"/>
@@ -1165,9 +1153,6 @@
                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                     <font key="font" metaFont="system"/>
                                                 </buttonCell>
-                                                <connections>
-                                                    <action selector="showDependencyGraph:" target="vJi-Tl-oER" id="cIe-V4-k5N"/>
-                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -1325,9 +1310,6 @@
                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
-                                        <connections>
-                                            <action selector="didEndEnterParameterTitle:" target="vJi-Tl-oER" id="VU5-x7-Z8u"/>
-                                        </connections>
                                     </textField>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="KDe-fG-wm0" userLabel="Show Parameter Dependecies Button">
                                         <rect key="frame" x="-6" y="-7" width="631" height="32"/>
@@ -1335,9 +1317,6 @@
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
-                                        <connections>
-                                            <action selector="showParameterRelationships:" target="vJi-Tl-oER" id="olk-YI-Fkq"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -1365,11 +1344,6 @@
                             <constraint firstItem="UiX-uG-HaU" firstAttribute="leading" secondItem="2vF-Lb-TFH" secondAttribute="leading" id="zRF-gd-LhA"/>
                         </constraints>
                     </view>
-                    <connections>
-                        <outlet property="ParameterColumn" destination="whq-Xw-vdU" id="zYn-dD-5Ds"/>
-                        <outlet property="ParameterTitlesColumn" destination="Mjh-u9-Hi0" id="9O5-LP-m5w"/>
-                        <outlet property="causeEffectTableView" destination="vvT-e3-HPO" id="AsQ-nk-Sr2"/>
-                    </connections>
                 </viewController>
                 <customObject id="FFX-ab-TtT" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1399,7 +1373,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="exit" width="128" height="128"/>
         <image name="exogenous" width="128" height="128"/>
         <image name="graph" width="128" height="128"/>
         <image name="next-arrow" width="128" height="128"/>

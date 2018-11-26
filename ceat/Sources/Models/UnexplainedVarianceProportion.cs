@@ -2,15 +2,21 @@
 {
     public class UnexplainedVarianceProportion
     {
-        public readonly WorkedPointsErrorValue WorkedPointsError;
         public readonly InputParameter Input;
         public readonly OutputParameter Ouput;
+        public readonly AnalyticalExpression ModelFormula;
+        public readonly WorkedPointsErrorValue WorkedPointsError;
 
-        public UnexplainedVarianceProportion(WorkedPointsErrorValue error, InputParameter input, OutputParameter output)
-        {
-            this.WorkedPointsError = error;
+        public UnexplainedVarianceProportion(
+            InputParameter input, 
+            OutputParameter output, 
+            AnalyticalExpression formula, 
+            WorkedPointsErrorValue error
+        ) {
             this.Input = input;
             this.Ouput = output;
+            this.ModelFormula = formula;
+            this.WorkedPointsError = error;
         }
 
         public CausalRelationshipPair RelatedPair(UnexplainedVarianceProportion other)

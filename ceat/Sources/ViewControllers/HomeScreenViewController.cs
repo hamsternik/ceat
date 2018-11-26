@@ -10,7 +10,7 @@ using ceat.Sources.Services;
 
 namespace ceat.Sources.ViewControllers
 {
-	public partial class HomeScreenViewController : NSViewController
+    public partial class HomeScreenViewController : NSViewController
     {
         // FIXME: Should be initialized at the `ViewController` entry-point
         public readonly FileManagerWrapper FileManager = new FileManagerWrapper(new NSFileManager());
@@ -25,7 +25,7 @@ namespace ceat.Sources.ViewControllers
         HomeScreenViewController(IntPtr handle) : base(handle) { }
         public override void ViewDidLoad() { base.ViewDidLoad(); }
 
-        #endregion
+        #endregion View Controller Life Cycle
 
 
         #region Xamarin.Mac Partial Methods
@@ -65,13 +65,18 @@ namespace ceat.Sources.ViewControllers
                 ((LoadedDataOutlineDataSource)LoadedDataOutlineView.DataSource).RootDataDir.Directories.Count
             );
 
+            var causalRelationshipMatrix = new CausalRelationshipMatrix(
+                unexplainedVarianceProportionMatrix,
+                algorithmService
+            );
+
             switch (ApplicationWorkMode)
             {
                 case WorkMode.Automatic:
-                    ShowCauseEffectMatrixScreen(unexplainedVarianceProportionMatrix);
+                    ShowCauseEffectMatrixScreen(causalRelationshipMatrix);
                     break;
                 case WorkMode.SemiAutomatic:
-                    ShowModelsPairScreen(unexplainedVarianceProportionMatrix);
+                    ShowModelsPairScreen(unexplainedVarianceProportionMatrix, causalRelationshipMatrix);
                     break;
             }
         }
@@ -93,24 +98,21 @@ namespace ceat.Sources.ViewControllers
 
         #region Private Methods
 
-        void ShowModelsPairScreen(UnexplainedVarianceProportionMatrix unexplainedVarianceProportionMatrix)
-        {
-            ModelsComparingWindowController = (NSWindowController) Storyboard.InstantiateControllerWithIdentifier("ModelsPairWindowController");
-            var viewController = (ModelsComparingViewController) ModelsComparingWindowController.Window.ContentViewController;
-            viewController.ViewModel = new ModelsComparingViewModel(unexplainedVarianceProportionMatrix, algorithmService);
+        void ShowModelsPairScreen(
+            UnexplainedVarianceProportionMatrix unexplainedVarianceProportionMatrix,
+            CausalRelationshipMatrix causalRelationshipMatrix
+        ) {
+            ModelsComparingWindowController = (NSWindowController)Storyboard.InstantiateControllerWithIdentifier("ModelsPairWindowController");
+            var viewController = (ModelsComparingViewController)ModelsComparingWindowController.Window.ContentViewController;
+            viewController.ViewModel = new ModelsComparingViewModel(unexplainedVarianceProportionMatrix, causalRelationshipMatrix, algorithmService);
 
             ModelsComparingWindowController.ShowWindow(this);
         }
 
-        void ShowCauseEffectMatrixScreen(UnexplainedVarianceProportionMatrix unexplainedVarianceProportionMatrix)
+        void ShowCauseEffectMatrixScreen(CausalRelationshipMatrix causalRelationshipMatrix)
         {
-            var causalRelationshipMatrix = new CausalRelationshipMatrix(
-                unexplainedVarianceProportionMatrix,
-                algorithmService
-            );
-
-            CauseEffectMatrixWindowController = (NSWindowController) Storyboard.InstantiateControllerWithIdentifier("CauseEffectMatrixWindowController");
-            var viewController = (CauseEffectMatrixViewController) CauseEffectMatrixWindowController.Window.ContentViewController;
+            CauseEffectMatrixWindowController = (NSWindowController)Storyboard.InstantiateControllerWithIdentifier("CauseEffectMatrixWindowController");
+            var viewController = (CauseEffectMatrixViewController)CauseEffectMatrixWindowController.Window.ContentViewController;
             viewController.ViewModel = new CauseEffectMatrixViewModel(causalRelationshipMatrix, algorithmService);
 
             CauseEffectMatrixWindowController.ShowWindow(this);
