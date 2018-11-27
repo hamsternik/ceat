@@ -1143,6 +1143,9 @@
                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                     <font key="font" metaFont="system"/>
                                                 </buttonCell>
+                                                <connections>
+                                                    <action selector="ShowExogenousParameters:" target="vJi-Tl-oER" id="l1T-M9-TIg"/>
+                                                </connections>
                                             </button>
                                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Sbb-Qk-hsO" userLabel="Show Dependecy Graph Button">
                                                 <rect key="frame" x="46" y="45" width="84" height="32"/>
@@ -1153,6 +1156,9 @@
                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                     <font key="font" metaFont="system"/>
                                                 </buttonCell>
+                                                <connections>
+                                                    <action selector="ShowDependencyGraph:" target="vJi-Tl-oER" id="wBX-Wi-KHu"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -1185,7 +1191,7 @@
                                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                     <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                                     <tableColumns>
-                                                        <tableColumn identifier="ParameterTitlesTableColumnID" width="55" minWidth="40" maxWidth="1000" id="Mjh-u9-Hi0" userLabel="Parameter Titles Column">
+                                                        <tableColumn identifier="ParameterTitlesTableColumn" width="55" minWidth="40" maxWidth="1000" id="Mjh-u9-Hi0" userLabel="Parameter Titles Column">
                                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="right" title="PTitles">
                                                                 <font key="font" metaFont="smallSystem"/>
                                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -1222,7 +1228,7 @@
                                                                 </tableCellView>
                                                             </prototypeCellViews>
                                                         </tableColumn>
-                                                        <tableColumn identifier="ParameterValuesTableColumnID" width="95" minWidth="10" maxWidth="3.4028234663852886e+38" id="whq-Xw-vdU" userLabel="X_n Parameter Column">
+                                                        <tableColumn identifier="ParameterValuesTableColumn" width="95" minWidth="10" maxWidth="3.4028234663852886e+38" id="whq-Xw-vdU" userLabel="X_n Parameter Column">
                                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center" title="X_n">
                                                                 <font key="font" metaFont="smallSystem"/>
                                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -1310,6 +1316,9 @@
                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
+                                        <connections>
+                                            <action selector="DidEndEnterParameterTitle:" target="vJi-Tl-oER" id="vG1-xN-owm"/>
+                                        </connections>
                                     </textField>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="KDe-fG-wm0" userLabel="Show Parameter Dependecies Button">
                                         <rect key="frame" x="-6" y="-7" width="631" height="32"/>
@@ -1317,6 +1326,9 @@
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
+                                        <connections>
+                                            <action selector="ShowParametersRelationships:" target="vJi-Tl-oER" id="0gF-Oi-JZX"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -1344,10 +1356,15 @@
                             <constraint firstItem="UiX-uG-HaU" firstAttribute="leading" secondItem="2vF-Lb-TFH" secondAttribute="leading" id="zRF-gd-LhA"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="CauseEffectRelationshipsTableView" destination="vvT-e3-HPO" id="R1F-7c-iif"/>
+                        <outlet property="ParameterColumn" destination="whq-Xw-vdU" id="zoS-fh-fYD"/>
+                        <outlet property="ParameterTitleColumn" destination="Mjh-u9-Hi0" id="tR1-Mw-Ksb"/>
+                    </connections>
                 </viewController>
                 <customObject id="FFX-ab-TtT" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1622" y="660"/>
+            <point key="canvasLocation" x="1621.5" y="659.5"/>
         </scene>
         <!--Window Controller-->
         <scene sceneID="poI-Ub-5IP">

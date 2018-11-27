@@ -31,6 +31,9 @@ namespace ceat.Sources.Models
             }
         }
 
+        public nint Rows => Value.GetLength(0);
+        public nint Columns => Value.GetLength(1);
+
         public string this[int row, int column] => this.Value[row, column];
 
         public void Print()

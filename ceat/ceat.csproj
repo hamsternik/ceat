@@ -83,6 +83,7 @@
     <Folder Include="Sources\Models\" />
     <Folder Include="Sources\ViewControllers\" />
     <Folder Include="Sources\ViewControllers\LoadedData\" />
+    <Folder Include="Sources\ViewControllers\CauseEffectRelationships\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -125,6 +126,8 @@
     <Compile Include="Sources\ViewControllers\CauseEffectMatrixViewController.designer.cs">
       <DependentUpon>CauseEffectMatrixViewController.cs</DependentUpon>
     </Compile>
+    <Compile Include="Sources\ViewControllers\CauseEffectRelationships\CauseEffectRelationshipsDataSource.cs" />
+    <Compile Include="Sources\ViewControllers\CauseEffectRelationships\CauseEffectRelationshipsDelegate.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Sources\Main.storyboard" />

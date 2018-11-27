@@ -17,18 +17,44 @@ namespace ceat.Sources.ViewControllers
         public CauseEffectMatrixViewModel(
             CausalRelationshipMatrix causalRelationshipMatrix, 
             AlgorithmService algorithmService
-            ) {
-                this._CausalRelationshipMatrix = causalRelationshipMatrix;
-                this._AlgorithmService = algorithmService;
+        ) {
+            this._CausalRelationshipMatrix = causalRelationshipMatrix;
+            this._AlgorithmService = algorithmService;
         }
     }
 
-    public partial class CauseEffectMatrixViewController : AppKit.NSViewController
+    public partial class CauseEffectMatrixViewController : NSViewController
     {
-        public CauseEffectMatrixViewController(IntPtr handle) : base(handle) { }
-        public override void ViewDidLoad() { base.ViewDidLoad(); }
-        
         public CauseEffectMatrixViewModel ViewModel;
 
+        public CauseEffectMatrixViewController(IntPtr handle) : base(handle) { }
+        public override void ViewDidLoad() 
+        { 
+            base.ViewDidLoad();
+
+            //DataSource = new CauseEffecetMatrixDataSource(PropertyTitles, CAEMatrix);
+            //causeEffectTableView.DataSource = DataSource;
+            //causeEffectTableView.Delegate = new CauseEffecetMatrixDelegate(DataSource, causeEffectTableView);
+        }
+
+        partial void ShowExogenousParameters(NSButton sender)
+        {
+            throw new NotImplementedException();
+        }
+
+        partial void ShowDependencyGraph(NSButton sender)
+        {
+            throw new NotImplementedException();
+        }
+
+        partial void ShowParametersRelationships(NSButton sender)
+        {
+            throw new NotImplementedException();
+        }
+
+        partial void DidEndEnterParameterTitle(NSTextField sender)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
