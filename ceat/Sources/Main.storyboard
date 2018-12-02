@@ -1184,7 +1184,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="443" height="224"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
-                                                <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="63" rowSizeStyle="automatic" headerView="4uM-vV-ngn" viewBased="YES" id="vvT-e3-HPO">
+                                                <tableView identifier="CauseEffectRelationshipsTableView" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="63" rowSizeStyle="automatic" headerView="4uM-vV-ngn" viewBased="YES" id="vvT-e3-HPO">
                                                     <rect key="frame" x="0.0" y="0.0" width="443" height="199"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <size key="intercellSpacing" width="3" height="2"/>
@@ -1357,9 +1357,9 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="CauseEffectRelationshipsTableView" destination="vvT-e3-HPO" id="R1F-7c-iif"/>
-                        <outlet property="ParameterColumn" destination="whq-Xw-vdU" id="zoS-fh-fYD"/>
-                        <outlet property="ParameterTitleColumn" destination="Mjh-u9-Hi0" id="tR1-Mw-Ksb"/>
+                        <outlet property="CauseEffectRelationshipsTableView" destination="vvT-e3-HPO" id="A7N-Y4-DLV"/>
+                        <outlet property="ParameterColumn" destination="whq-Xw-vdU" id="emo-XQ-nxz"/>
+                        <outlet property="ParameterTitleColumn" destination="Mjh-u9-Hi0" id="mpF-wE-gvf"/>
                     </connections>
                 </viewController>
                 <customObject id="FFX-ab-TtT" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>

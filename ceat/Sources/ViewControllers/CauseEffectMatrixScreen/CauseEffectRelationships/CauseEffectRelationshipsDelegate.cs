@@ -24,8 +24,8 @@ namespace ceat.Sources.ViewControllers.CauseEffectMatrixScreen.CauseEffectRelati
             SetupTableColumns(tableView);
         }
 
-        #region Override Methods
-        public override NSView GetViewForItem(NSTableView tableView, NSTableColumn tableColumn, nint row)
+		#region NSTableViewDelegate Methods
+		public override NSView GetViewForItem(NSTableView tableView, NSTableColumn tableColumn, nint row)
         {
             double tfWidth = (tableColumn.Identifier == "ParameterTitlesTableColumn") 
                 ? C.DefaultParameterTextFieldWidth 
@@ -58,10 +58,15 @@ namespace ceat.Sources.ViewControllers.CauseEffectMatrixScreen.CauseEffectRelati
 
             return cellView;
         }
-        #endregion
 
-        #region Private Methods
-        void SetupTableColumns(NSTableView tableView)
+		public override nfloat GetRowHeight(NSTableView tableView, nint row)
+		{
+			return (nfloat)C.DefaultParameterTextFieldHeight;
+		}
+		#endregion NSTableViewDelegate Methods
+
+		#region Private Methods
+		void SetupTableColumns(NSTableView tableView)
         {
             /// 1. Remove unused column
             if (CheckColumnExistence(tableView, "ParameterValuesTableColumn"))
@@ -80,7 +85,7 @@ namespace ceat.Sources.ViewControllers.CauseEffectMatrixScreen.CauseEffectRelati
             }
 
             // 3. Update ParameterTitlesTableColumnID width
-            var parametTitlesColumn = tableView.FindTableColumn(new NSString("ParameterValuesTableColumn"));
+            var parametTitlesColumn = tableView.FindTableColumn(new NSString("ParameterTitlesTableColumn"));
             parametTitlesColumn.Width = (nfloat)C.DefaultParameterTextFieldWidth;
         }
 
@@ -97,7 +102,6 @@ namespace ceat.Sources.ViewControllers.CauseEffectMatrixScreen.CauseEffectRelati
             var tableColumn = tableView.FindTableColumn(new NSString(tableColumnID));
             return tableColumn != null;
         }
-        #endregion
-
+        #endregion Private Methods
     }
 }

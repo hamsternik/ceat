@@ -26,17 +26,20 @@ namespace ceat.Sources.ViewControllers.CauseEffectMatrixScreen
         public CauseEffectMatrixViewModel ViewModel;
 
         public CauseEffectMatrixViewController(IntPtr handle) : base(handle) { }
-        public override void ViewDidLoad() 
-        { 
-            base.ViewDidLoad();
+        public override void ViewDidLoad() { base.ViewDidLoad(); }
 
-			
-            //DataSource = new CauseEffecetMatrixDataSource(PropertyTitles, CAEMatrix);
-            //causeEffectTableView.DataSource = DataSource;
-            //causeEffectTableView.Delegate = new CauseEffecetMatrixDelegate(DataSource, causeEffectTableView);
-        }
+		public override void ViewWillAppear()
+		{
+			base.ViewWillAppear();
 
-        partial void ShowExogenousParameters(NSButton sender)
+			CauseEffectRelationshipsTableView.DataSource = new CauseEffectRelationshipsDataSource(ViewModel._CausalRelationshipMatrix);
+			CauseEffectRelationshipsTableView.Delegate = new CauseEffectRelationshipsDelegate(
+				(CauseEffectRelationshipsDataSource)CauseEffectRelationshipsTableView.DataSource,
+				CauseEffectRelationshipsTableView
+			);
+		}
+
+		partial void ShowExogenousParameters(NSButton sender)
         {
             throw new NotImplementedException();
         }
