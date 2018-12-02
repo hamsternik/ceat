@@ -74,9 +74,20 @@
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\AppIcon-512.png" />
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\AppIcon-512%402x.png" />
     <ImageAsset Include="Assets.xcassets\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\exit.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\exit.imageset\exit.png" />
+    <ImageAsset Include="Assets.xcassets\exogenous.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\exogenous.imageset\exogenous.png" />
+    <ImageAsset Include="Assets.xcassets\graph.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\graph.imageset\graph.png" />
+    <ImageAsset Include="Assets.xcassets\next-arrow.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\next-arrow.imageset\next-arrow.png" />
+    <ImageAsset Include="Assets.xcassets\plot.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\plot.imageset\plot.png" />
+    <ImageAsset Include="Assets.xcassets\search.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\search.imageset\search.png" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Resources\" />
     <Folder Include="Sources\" />
     <Folder Include="Sources\Application\" />
     <Folder Include="Sources\Services\" />
@@ -87,6 +98,12 @@
     <Folder Include="Sources\ViewControllers\CauseEffectMatrixScreen\" />
     <Folder Include="Sources\ViewControllers\CauseEffectMatrixScreen\CauseEffectRelationships\" />
     <Folder Include="Sources\ViewControllers\ModelsComparingScreen\" />
+    <Folder Include="Assets.xcassets\exit.imageset\" />
+    <Folder Include="Assets.xcassets\exogenous.imageset\" />
+    <Folder Include="Assets.xcassets\graph.imageset\" />
+    <Folder Include="Assets.xcassets\next-arrow.imageset\" />
+    <Folder Include="Assets.xcassets\plot.imageset\" />
+    <Folder Include="Assets.xcassets\search.imageset\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />

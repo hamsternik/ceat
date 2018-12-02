@@ -1390,10 +1390,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="exogenous" width="128" height="128"/>
-        <image name="graph" width="128" height="128"/>
-        <image name="next-arrow" width="128" height="128"/>
-        <image name="plot" width="128" height="128"/>
-        <image name="search" width="128" height="128"/>
+        <image name="exogenous" width="409.60000610351562" height="409.60000610351562"/>
+        <image name="graph" width="409.60000610351562" height="409.60000610351562"/>
+        <image name="next-arrow" width="39.724136352539062" height="39.724136352539062"/>
+        <image name="plot" width="409.60000610351562" height="409.60000610351562"/>
+        <image name="search" width="42.372413635253906" height="42.372413635253906"/>
     </resources>
 </document>
