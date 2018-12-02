@@ -1,11 +1,10 @@
 ﻿using System;
 using AppKit;
 using Foundation;
-using System.Collections.Generic;
 
 using ceat.Sources.Models;
 
-namespace ceat.Sources
+namespace ceat.Sources.ViewControllers.HomeScreen.LoadedData
 {
     public class LoadedDataOutlineDataSource : NSOutlineViewDataSource
     {
@@ -36,10 +35,7 @@ namespace ceat.Sources
 
         public override bool ItemExpandable(NSOutlineView outlineView, NSObject item)
         {
-            if (item == null)
-                return true;
-            else
-                return item is Directory;
+            return item == null || item is Directory;
         }
         #endregion
     }

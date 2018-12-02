@@ -7,8 +7,11 @@ using AppKit;
 
 using ceat.Sources.Models;
 using ceat.Sources.Services;
+using ceat.Sources.ViewControllers.HomeScreen.LoadedData;
+using ceat.Sources.ViewControllers.ModelsComparingScreen;
+using ceat.Sources.ViewControllers.CauseEffectMatrixScreen;
 
-namespace ceat.Sources.ViewControllers
+namespace ceat.Sources.ViewControllers.HomeScreen
 {
     public partial class HomeScreenViewController : NSViewController
     {

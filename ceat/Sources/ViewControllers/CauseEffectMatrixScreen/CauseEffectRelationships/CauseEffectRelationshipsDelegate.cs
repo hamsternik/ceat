@@ -3,9 +3,7 @@ using AppKit;
 using CoreGraphics;
 using Foundation;
 
-using ceat.Sources.Models;
-
-namespace ceat.Sources.ViewControllers
+namespace ceat.Sources.ViewControllers.CauseEffectMatrixScreen.CauseEffectRelationships
 {
     public class CauseEffectRelationshipsDelegate: NSTableViewDelegate
     {
@@ -42,7 +40,8 @@ namespace ceat.Sources.ViewControllers
             /// Setup data in the textField
             if (tableColumn.Identifier == "ParameterTitlesTableColumn")
             {
-                textField.StringValue = DataSource.PropertyTitles[row];
+                var propertyTitle = row < 10 ? $"x0{row}" : $"x{row}";
+                textField.StringValue = propertyTitle;
             }
             /// for `ParameterValuesTableColumn`
             else
@@ -51,7 +50,7 @@ namespace ceat.Sources.ViewControllers
                 if (tableColumnIndex < 0)
                     return null;
 
-                textField.StringValue = DataSource.CAEMatrix[row, tableColumnIndex - 1];
+                textField.StringValue = DataSource._CausalRelationshipMatrix[(int)row, (int)tableColumnIndex - 1];
             }
 
             NSView cellView = new NSView();
@@ -69,8 +68,9 @@ namespace ceat.Sources.ViewControllers
                 tableView.RemoveColumn(tableView.FindTableColumn(new NSString("ParameterValuesTableColumn")));
 
             /// 2. Check if exist, remove and re-create a new column
-            foreach (string propertyTitle in DataSource.PropertyTitles)
+            for (int ind = 0; ind < DataSource._CausalRelationshipMatrix.Rows; ind++) 
             {
+                var propertyTitle = ind < 10 ? $"x0{ind}" : $"x{ind}";
                 NSTableColumn column = new NSTableColumn(propertyTitle)
                 {
                     Title = propertyTitle,

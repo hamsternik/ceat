@@ -7,7 +7,7 @@
 using Foundation;
 using System.CodeDom.Compiler;
 
-namespace ceat.Sources.ViewControllers
+namespace ceat.Sources.ViewControllers.ModelsComparingScreen
 {
 	[Register ("ModelsComparingViewController")]
 	partial class ModelsComparingViewController

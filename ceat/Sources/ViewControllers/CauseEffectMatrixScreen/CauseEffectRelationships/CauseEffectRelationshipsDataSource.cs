@@ -3,7 +3,7 @@ using AppKit;
 
 using ceat.Sources.Models;
 
-namespace ceat.Sources.ViewControllers
+namespace ceat.Sources.ViewControllers.CauseEffectMatrixScreen.CauseEffectRelationships
 {
     public class CauseEffectRelationshipsDataSource: NSTableViewDataSource
     {

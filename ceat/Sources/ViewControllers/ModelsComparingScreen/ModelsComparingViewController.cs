@@ -4,8 +4,9 @@ using CoreFoundation;
 
 using ceat.Sources.Models;
 using ceat.Sources.Services;
+using ceat.Sources.ViewControllers.CauseEffectMatrixScreen;
 
-namespace ceat.Sources.ViewControllers
+namespace ceat.Sources.ViewControllers.ModelsComparingScreen
 {
     #region View Model
     public class ModelsComparingViewModel

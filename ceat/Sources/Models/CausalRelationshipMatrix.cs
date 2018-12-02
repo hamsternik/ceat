@@ -1,4 +1,5 @@
 ﻿using System;
+
 using ceat.Sources.Services;
 
 namespace ceat.Sources.Models
@@ -31,8 +32,8 @@ namespace ceat.Sources.Models
             }
         }
 
-        public nint Rows => Value.GetLength(0);
-        public nint Columns => Value.GetLength(1);
+        public int Rows => (int)Value.GetLength(0);
+        public int Columns => (int)Value.GetLength(1);
 
         public string this[int row, int column] => this.Value[row, column];
 

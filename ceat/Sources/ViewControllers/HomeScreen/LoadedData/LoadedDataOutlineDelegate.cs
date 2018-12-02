@@ -1,10 +1,9 @@
-﻿using System;
-using Foundation;
+﻿using Foundation;
 using AppKit;
 
 using ceat.Sources.Models;
 
-namespace ceat.Sources
+namespace ceat.Sources.ViewControllers.HomeScreen.LoadedData
 {
     public class LoadedDataOutlineDelegate : NSOutlineViewDelegate
     {

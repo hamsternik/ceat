@@ -82,8 +82,11 @@
     <Folder Include="Sources\Services\" />
     <Folder Include="Sources\Models\" />
     <Folder Include="Sources\ViewControllers\" />
-    <Folder Include="Sources\ViewControllers\LoadedData\" />
-    <Folder Include="Sources\ViewControllers\CauseEffectRelationships\" />
+    <Folder Include="Sources\ViewControllers\HomeScreen\" />
+    <Folder Include="Sources\ViewControllers\HomeScreen\LoadedData\" />
+    <Folder Include="Sources\ViewControllers\CauseEffectMatrixScreen\" />
+    <Folder Include="Sources\ViewControllers\CauseEffectMatrixScreen\CauseEffectRelationships\" />
+    <Folder Include="Sources\ViewControllers\ModelsComparingScreen\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -112,22 +115,22 @@
     <Compile Include="Sources\Models\UnexplainedVarianceProportionList.cs" />
     <Compile Include="Sources\Models\UnexplainedVarianceProportionMatrix.cs" />
     <Compile Include="Sources\Models\CausalRelationshipMatrix.cs" />
-    <Compile Include="Sources\ViewControllers\LoadedData\LoadedDataOutlineDataSource.cs" />
-    <Compile Include="Sources\ViewControllers\LoadedData\LoadedDataOutlineDelegate.cs" />
-    <Compile Include="Sources\ViewControllers\HomeScreenViewController.cs" />
-    <Compile Include="Sources\ViewControllers\HomeScreenViewController.designer.cs">
+    <Compile Include="Sources\ViewControllers\HomeScreen\HomeScreenViewController.cs" />
+    <Compile Include="Sources\ViewControllers\HomeScreen\HomeScreenViewController.designer.cs">
       <DependentUpon>HomeScreenViewController.cs</DependentUpon>
     </Compile>
-    <Compile Include="Sources\ViewControllers\ModelsComparingViewController.cs" />
-    <Compile Include="Sources\ViewControllers\ModelsComparingViewController.designer.cs">
-      <DependentUpon>ModelsComparingViewController.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Sources\ViewControllers\CauseEffectMatrixViewController.cs" />
-    <Compile Include="Sources\ViewControllers\CauseEffectMatrixViewController.designer.cs">
+    <Compile Include="Sources\ViewControllers\HomeScreen\LoadedData\LoadedDataOutlineDataSource.cs" />
+    <Compile Include="Sources\ViewControllers\HomeScreen\LoadedData\LoadedDataOutlineDelegate.cs" />
+    <Compile Include="Sources\ViewControllers\CauseEffectMatrixScreen\CauseEffectMatrixViewController.cs" />
+    <Compile Include="Sources\ViewControllers\CauseEffectMatrixScreen\CauseEffectMatrixViewController.designer.cs">
       <DependentUpon>CauseEffectMatrixViewController.cs</DependentUpon>
     </Compile>
-    <Compile Include="Sources\ViewControllers\CauseEffectRelationships\CauseEffectRelationshipsDataSource.cs" />
-    <Compile Include="Sources\ViewControllers\CauseEffectRelationships\CauseEffectRelationshipsDelegate.cs" />
+    <Compile Include="Sources\ViewControllers\CauseEffectMatrixScreen\CauseEffectRelationships\CauseEffectRelationshipsDataSource.cs" />
+    <Compile Include="Sources\ViewControllers\CauseEffectMatrixScreen\CauseEffectRelationships\CauseEffectRelationshipsDelegate.cs" />
+    <Compile Include="Sources\ViewControllers\ModelsComparingScreen\ModelsComparingViewController.cs" />
+    <Compile Include="Sources\ViewControllers\ModelsComparingScreen\ModelsComparingViewController.designer.cs">
+      <DependentUpon>ModelsComparingViewController.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Sources\Main.storyboard" />

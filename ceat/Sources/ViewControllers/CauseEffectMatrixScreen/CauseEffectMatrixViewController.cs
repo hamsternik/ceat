@@ -1,13 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using Foundation;
 using AppKit;
 
 using ceat.Sources.Models;
 using ceat.Sources.Services;
+using ceat.Sources.ViewControllers.CauseEffectMatrixScreen.CauseEffectRelationships;
 
-namespace ceat.Sources.ViewControllers
+namespace ceat.Sources.ViewControllers.CauseEffectMatrixScreen
 {
     public class CauseEffectMatrixViewModel
     {
@@ -32,6 +30,7 @@ namespace ceat.Sources.ViewControllers
         { 
             base.ViewDidLoad();
 
+			
             //DataSource = new CauseEffecetMatrixDataSource(PropertyTitles, CAEMatrix);
             //causeEffectTableView.DataSource = DataSource;
             //causeEffectTableView.Delegate = new CauseEffecetMatrixDelegate(DataSource, causeEffectTableView);
