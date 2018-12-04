@@ -9,33 +9,33 @@ namespace ceat.Sources.Models.Parameters
 
 	public class ExogenousParameters
 	{
-		private readonly Parameter[] _AllParameters;
+		private readonly OutputParameter[] _OutputParameters;
 		private readonly CausalRelationshipMatrix _CausalRelationshipMatrix;
 		private readonly UnexplainedVarianceProportionMatrix _UnexplainedVarianceProportionMatrix;
 
 		public ExogenousParameters(
-			Parameter[] allParameters, 
+			OutputParameter[] outputParameters, 
 			CausalRelationshipMatrix crMatrix, 
 			UnexplainedVarianceProportionMatrix uvpMatrix
 		) {
-			this._AllParameters = allParameters;
+			this._OutputParameters = outputParameters;
 			this._CausalRelationshipMatrix = crMatrix;
 			this._UnexplainedVarianceProportionMatrix = uvpMatrix;
 		}
 
-		public Parameter[] Value
+		public OutputParameter[] Value
 		{
 			get 
 			{
 				var exogenousParamaterValidationResults = Enumerable.Range(0, this._CausalRelationshipMatrix.Dimension.Rows)
-					.Select(rowIndex => this._CausalRelationshipMatrix.RowByIndex(rowIndex))
+					.Select(_CausalRelationshipMatrix.RowByIndex)
 					.Select(crRow => crRow.Where(elem => elem != CausalRelationshipMatrix.C.DefaultComparingResultItem).ToArray())
 					.Select(crRow => crRow.Aggregate(true, (acc, str) => acc && int.Parse(str) == 1))
 					.ToArray();
 
 				return Enumerable.Range(0, exogenousParamaterValidationResults.Length)
 					.Where(rowIndex => exogenousParamaterValidationResults[rowIndex])
-					.Select(index => this._AllParameters[index])
+					.Select(index => this._OutputParameters.ElementAtOrDefault(index))
 					.ToArray();
 			}
 		}

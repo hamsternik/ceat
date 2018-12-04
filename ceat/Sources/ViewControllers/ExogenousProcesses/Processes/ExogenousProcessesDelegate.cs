@@ -9,7 +9,7 @@ namespace ceat.Sources.ViewControllers.ExogenousProcesses.Processes
 	{
 		public static class C
 		{
-			public static double DefaultColumnWidth => 45.0;
+			public static double DefaultColumnWidth => 75.0;
 			public static double DefaultParameterTextFieldWidth => 55.0;
 			public static double DefaultParameterTextFieldHeight => 17.0;
 		}

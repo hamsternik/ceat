@@ -40,7 +40,7 @@ namespace ceat.Sources.ViewControllers.CauseEffectMatrixScreen.CauseEffectRelati
             /// Setup data in the textField
             if (tableColumn.Identifier == "ParameterTitlesTableColumn")
             {
-                var propertyTitle = row < 10 ? $"x0{row}" : $"x{row}";
+                var propertyTitle = row < 10 ? $"x0{row+1}" : $"x{row+1}";
                 textField.StringValue = propertyTitle;
             }
             /// for `ParameterValuesTableColumn`

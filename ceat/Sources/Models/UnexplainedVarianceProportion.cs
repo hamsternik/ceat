@@ -6,11 +6,10 @@ namespace ceat.Sources.Models
 {
     public class UnexplainedVarianceProportion
     {
+		public readonly InputParameter Input;
+		public readonly OutputParameter Output;
 		public readonly AnalyticalExpression ModelFormula;
 		public readonly WorkedPointsErrorValue WorkedPointsError;
-
-		private readonly InputParameter Input;
-		private readonly OutputParameter Output;
 
         public UnexplainedVarianceProportion(
             InputParameter input, 

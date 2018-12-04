@@ -6,10 +6,11 @@ namespace ceat.Sources.Models.Parameters
 {
 	public class InputParameter
     {
+		public readonly Parameter _Parameter;
+
 		public string Title => _Parameter.ParameterTitles[1].Value;
 		public double[] Values => this._Parameter.Values;
 
-		private readonly Parameter _Parameter;
 		private ParameterIndices InputIndices => new ParameterIndices(30, 6);
 
 		public InputParameter(ExcelFile file)

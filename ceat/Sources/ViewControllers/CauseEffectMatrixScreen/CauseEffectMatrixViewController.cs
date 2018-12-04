@@ -1,5 +1,6 @@
 ﻿using System;
 using AppKit;
+using System.Linq;
 
 using ceat.Sources.Models;
 using ceat.Sources.Models.Parameters;
@@ -43,10 +44,15 @@ namespace ceat.Sources.ViewControllers.CauseEffectMatrixScreen
         {
 			ExogenousProcessesWindowController = (NSWindowController)Storyboard.InstantiateControllerWithIdentifier("ExogenousProcessesWindowController");
 			var viewController = (ExogenousProcessesViewController)ExogenousProcessesWindowController.Window.ContentViewController;
+			var a = 
+
 			viewController.ViewModel = new ExogenousProcessesViewModel(
 				new ExogenousParameters(
-					// TODO: Pass a real List<Parameter> instead of an empty one.
-					new System.Collections.Generic.List<Parameter>().ToArray(),
+					Enumerable.Range(0, ViewModel.UVPMatrix.Dimension.Rows)
+						.Select(ViewModel.UVPMatrix.RowByIndex)
+						.Select(uvpRow => uvpRow.First(elem => elem != null))
+						.Select(uvp => uvp.Output)
+						.ToArray(),
 					ViewModel.CRMatrix,
 					ViewModel.UVPMatrix
 				)

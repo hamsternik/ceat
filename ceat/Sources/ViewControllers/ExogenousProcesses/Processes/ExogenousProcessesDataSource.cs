@@ -1,7 +1,6 @@
 ﻿using System;
 using AppKit;
-
-using ceat.Sources.Models;
+using Foundation;
 
 namespace ceat.Sources.ViewControllers.ExogenousProcesses.Processes
 {
