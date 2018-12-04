@@ -2,37 +2,34 @@
 using AppKit;
 
 using ceat.Sources.Models;
-using ceat.Sources.Services;
 using ceat.Sources.ViewControllers.CauseEffectMatrixScreen.CauseEffectRelationships;
+using ceat.Sources.ViewControllers.ExogenousProcesses;
 
 namespace ceat.Sources.ViewControllers.CauseEffectMatrixScreen
 {
     public class CauseEffectMatrixViewModel
     {
-        public readonly CausalRelationshipMatrix _CausalRelationshipMatrix;
-        public readonly AlgorithmService _AlgorithmService;
-
-        public CauseEffectMatrixViewModel(
-            CausalRelationshipMatrix causalRelationshipMatrix, 
-            AlgorithmService algorithmService
-        ) {
-            this._CausalRelationshipMatrix = causalRelationshipMatrix;
-            this._AlgorithmService = algorithmService;
+        public readonly CausalRelationshipMatrix Matrix;
+        
+        public CauseEffectMatrixViewModel(CausalRelationshipMatrix matrix) 
+        {
+            this.Matrix = matrix;
         }
     }
 
     public partial class CauseEffectMatrixViewController : NSViewController
     {
         public CauseEffectMatrixViewModel ViewModel;
+		NSWindowController ExogenousProcessesWindowController;
 
-        public CauseEffectMatrixViewController(IntPtr handle) : base(handle) { }
+		public CauseEffectMatrixViewController(IntPtr handle) : base(handle) {}
         public override void ViewDidLoad() { base.ViewDidLoad(); }
 
 		public override void ViewWillAppear()
 		{
 			base.ViewWillAppear();
 
-			CauseEffectRelationshipsTableView.DataSource = new CauseEffectRelationshipsDataSource(ViewModel._CausalRelationshipMatrix);
+			CauseEffectRelationshipsTableView.DataSource = new CauseEffectRelationshipsDataSource(ViewModel.Matrix);
 			CauseEffectRelationshipsTableView.Delegate = new CauseEffectRelationshipsDelegate(
 				(CauseEffectRelationshipsDataSource)CauseEffectRelationshipsTableView.DataSource,
 				CauseEffectRelationshipsTableView
@@ -41,8 +38,13 @@ namespace ceat.Sources.ViewControllers.CauseEffectMatrixScreen
 
 		partial void ShowExogenousParameters(NSButton sender)
         {
-            throw new NotImplementedException();
-        }
+			// ExogenousProcessesViewController
+			ExogenousProcessesWindowController = (NSWindowController)Storyboard.InstantiateControllerWithIdentifier("ExogenousProcessesWindowController");
+			var viewController = (ExogenousProcessesViewController)ExogenousProcessesWindowController.Window.ContentViewController;
+			viewController.ViewModel = new ExogenousProcessesViewModel(ViewModel.Matrix);
+
+			ExogenousProcessesWindowController.ShowWindow(this);
+		}
 
         partial void ShowDependencyGraph(NSButton sender)
         {

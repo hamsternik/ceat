@@ -116,7 +116,7 @@ namespace ceat.Sources.ViewControllers.HomeScreen
         {
             CauseEffectMatrixWindowController = (NSWindowController)Storyboard.InstantiateControllerWithIdentifier("CauseEffectMatrixWindowController");
             var viewController = (CauseEffectMatrixViewController)CauseEffectMatrixWindowController.Window.ContentViewController;
-            viewController.ViewModel = new CauseEffectMatrixViewModel(causalRelationshipMatrix, algorithmService);
+            viewController.ViewModel = new CauseEffectMatrixViewModel(causalRelationshipMatrix);
 
             CauseEffectMatrixWindowController.ShowWindow(this);
         }

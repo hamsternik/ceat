@@ -35,6 +35,11 @@ namespace ceat.Sources.ViewControllers.CauseEffectMatrixScreen
 		
 		void ReleaseDesignerOutlets ()
 		{
+			if (CauseEffectRelationshipsTableView != null) {
+				CauseEffectRelationshipsTableView.Dispose ();
+				CauseEffectRelationshipsTableView = null;
+			}
+
 			if (ParameterColumn != null) {
 				ParameterColumn.Dispose ();
 				ParameterColumn = null;
@@ -43,11 +48,6 @@ namespace ceat.Sources.ViewControllers.CauseEffectMatrixScreen
 			if (ParameterTitleColumn != null) {
 				ParameterTitleColumn.Dispose ();
 				ParameterTitleColumn = null;
-			}
-
-			if (CauseEffectRelationshipsTableView != null) {
-				CauseEffectRelationshipsTableView.Dispose ();
-				CauseEffectRelationshipsTableView = null;
 			}
 		}
 	}

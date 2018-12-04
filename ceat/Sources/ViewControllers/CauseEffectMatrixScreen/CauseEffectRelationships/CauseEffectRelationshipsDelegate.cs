@@ -65,15 +65,19 @@ namespace ceat.Sources.ViewControllers.CauseEffectMatrixScreen.CauseEffectRelati
 		}
 		#endregion NSTableViewDelegate Methods
 
-		#region Private Methods
 		void SetupTableColumns(NSTableView tableView)
         {
-            /// 1. Remove unused column
-            if (CheckColumnExistence(tableView, "ParameterValuesTableColumn"))
-                tableView.RemoveColumn(tableView.FindTableColumn(new NSString("ParameterValuesTableColumn")));
+			/// Update titles column .width
+			var titlesColumn = tableView.FindTableColumn(new NSString("ParameterTitlesTableColumn"));
+			titlesColumn.Width = (nfloat)C.DefaultParameterTextFieldWidth;
 
-            /// 2. Check if exist, remove and re-create a new column
-            for (int ind = 0; ind < DataSource._CausalRelationshipMatrix.Rows; ind++) 
+			/// Remove unused `ParameterValuesTableColumn` column
+			var unusedParameterValuesColumn = tableView.FindTableColumn(new NSString("ParameterValuesTableColumn"));
+			if (unusedParameterValuesColumn != null)
+                tableView.RemoveColumn(unusedParameterValuesColumn);
+
+            /// Add columns for each variable (`x*` input process)
+            for (int ind = 0; ind < DataSource.Matrix.Rows; ind++) 
             {
                 var propertyTitle = ind < 10 ? $"x0{ind}" : $"x{ind}";
                 NSTableColumn column = new NSTableColumn(propertyTitle)
@@ -83,10 +87,6 @@ namespace ceat.Sources.ViewControllers.CauseEffectMatrixScreen.CauseEffectRelati
                 };
                 tableView.AddColumn(column);
             }
-
-            // 3. Update ParameterTitlesTableColumnID width
-            var parametTitlesColumn = tableView.FindTableColumn(new NSString("ParameterTitlesTableColumn"));
-            parametTitlesColumn.Width = (nfloat)C.DefaultParameterTextFieldWidth;
         }
 
         void SetupTextFieldInterfaceByColumnIdentifier(NSTextField textField, string identifier)
@@ -96,12 +96,5 @@ namespace ceat.Sources.ViewControllers.CauseEffectMatrixScreen.CauseEffectRelati
             textField.Editable = false;
             textField.Bordered = false;
         }
-
-        bool CheckColumnExistence(NSTableView tableView, string tableColumnID)
-        {
-            var tableColumn = tableView.FindTableColumn(new NSString(tableColumnID));
-            return tableColumn != null;
-        }
-        #endregion Private Methods
-    }
+	}
 }

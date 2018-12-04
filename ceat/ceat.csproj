@@ -104,6 +104,8 @@
     <Folder Include="Assets.xcassets\next-arrow.imageset\" />
     <Folder Include="Assets.xcassets\plot.imageset\" />
     <Folder Include="Assets.xcassets\search.imageset\" />
+    <Folder Include="Sources\ViewControllers\ExogenousProcesses\" />
+    <Folder Include="Sources\ViewControllers\ExogenousProcesses\Processes\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -148,6 +150,12 @@
     <Compile Include="Sources\ViewControllers\ModelsComparingScreen\ModelsComparingViewController.designer.cs">
       <DependentUpon>ModelsComparingViewController.cs</DependentUpon>
     </Compile>
+    <Compile Include="Sources\ViewControllers\ExogenousProcesses\ExogenousProcessesViewController.cs" />
+    <Compile Include="Sources\ViewControllers\ExogenousProcesses\ExogenousProcessesViewController.designer.cs">
+      <DependentUpon>ExogenousProcessesViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sources\ViewControllers\ExogenousProcesses\Processes\ExogenousProcessesDataSource.cs" />
+    <Compile Include="Sources\ViewControllers\ExogenousProcesses\Processes\ExogenousProcessesDelegate.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Sources\Main.storyboard" />

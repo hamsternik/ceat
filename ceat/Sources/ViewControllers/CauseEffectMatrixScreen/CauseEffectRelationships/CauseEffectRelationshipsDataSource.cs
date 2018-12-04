@@ -7,16 +7,13 @@ namespace ceat.Sources.ViewControllers.CauseEffectMatrixScreen.CauseEffectRelati
 {
     public class CauseEffectRelationshipsDataSource: NSTableViewDataSource
     {
-        public readonly CausalRelationshipMatrix _CausalRelationshipMatrix;
+        public readonly CausalRelationshipMatrix Matrix;
 
-        public CauseEffectRelationshipsDataSource(CausalRelationshipMatrix causalRelationshipMatrix)
+        public CauseEffectRelationshipsDataSource(CausalRelationshipMatrix matrix)
         {
-            this._CausalRelationshipMatrix = causalRelationshipMatrix;
+            this.Matrix = matrix;
         }
 
-        public override nint GetRowCount(NSTableView tableView)
-        {
-            return _CausalRelationshipMatrix.Rows;
-        }
-    }
+		public override nint GetRowCount(NSTableView tableView) => Matrix.Rows;
+	}
 }
