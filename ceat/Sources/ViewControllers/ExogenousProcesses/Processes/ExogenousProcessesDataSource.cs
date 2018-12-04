@@ -7,14 +7,13 @@ namespace ceat.Sources.ViewControllers.ExogenousProcesses.Processes
 {
 	public class ExogenousProcessesDataSource: NSTableViewDataSource
 	{
-		// TODO: Should be another properties (CausalRelationshipMatrix doesn't needed here)
-		public readonly CausalRelationshipMatrix Matrix;
+		public readonly int ProcessesCount;
 
-		public ExogenousProcessesDataSource(CausalRelationshipMatrix matrix)
+		public ExogenousProcessesDataSource(int count)
 		{
-			this.Matrix = matrix;
+			this.ProcessesCount = count;
 		}
 
-		public override nint GetRowCount(NSTableView tableView) => Matrix.Rows;
+		public override nint GetRowCount(NSTableView tableView) => this.ProcessesCount;
 	}
 }

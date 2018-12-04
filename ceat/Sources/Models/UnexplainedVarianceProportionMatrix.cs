@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace ceat.Sources.Models
 {
@@ -6,7 +7,11 @@ namespace ceat.Sources.Models
     {
         public readonly UnexplainedVarianceProportion[,] Value;
 
-        public UnexplainedVarianceProportionMatrix(UnexplainedVarianceProportionList uvpList, nint dirCount)
+		public (int Rows, int Columns) Dimension => ((int)Value.GetLength(0), (int)Value.GetLength(1));
+
+		public UnexplainedVarianceProportion this[int row, int column] => this.Value[row, column];
+
+		public UnexplainedVarianceProportionMatrix(UnexplainedVarianceProportionList uvpList, nint dirCount)
         {
             this.Value = new UnexplainedVarianceProportion[dirCount, dirCount];
             for (int i = 0; i < dirCount; i++)
@@ -16,7 +21,7 @@ namespace ceat.Sources.Models
                     if (i != j)
                     {
                         this.Value[i, j] = uvpList.Value.Find(
-                            element => (element.Ouput.IntegerValue - 1) == i && (element.Input.IntegerValue - 1) == j
+                            element => (element.OutputParameterIndex - 1) == i && (element.InputParameterIndex - 1) == j
                         );
                     }
                     else
@@ -27,10 +32,19 @@ namespace ceat.Sources.Models
             }
         }
 
-        public nint Rows => Value.GetLength(0);
-        public nint Columns => Value.GetLength(1);
+		public UnexplainedVarianceProportion[] RowByIndex(int rowIndex) 
+		{
+			return Enumerable.Range(0, Dimension.Columns)
+				.Select(columnIndex => this.Value[rowIndex, columnIndex])
+				.ToArray();
+		}
 
-        public UnexplainedVarianceProportion this[int row, int column] => this.Value[row, column];
+		public UnexplainedVarianceProportion[] ColumnByIndex(int columnIndex)
+		{
+			return Enumerable.Range(0, Dimension.Rows)
+				.Select(rowIndex => this.Value[rowIndex, columnIndex])
+				.ToArray();
+		}
 
         public void Print()
         {

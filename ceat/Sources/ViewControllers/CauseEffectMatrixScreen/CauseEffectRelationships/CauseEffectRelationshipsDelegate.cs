@@ -50,7 +50,7 @@ namespace ceat.Sources.ViewControllers.CauseEffectMatrixScreen.CauseEffectRelati
                 if (tableColumnIndex < 0)
                     return null;
 
-                textField.StringValue = DataSource._CausalRelationshipMatrix[(int)row, (int)tableColumnIndex - 1];
+                textField.StringValue = DataSource.Matrix[(int)row, (int)tableColumnIndex - 1];
             }
 
             NSView cellView = new NSView();
@@ -77,7 +77,7 @@ namespace ceat.Sources.ViewControllers.CauseEffectMatrixScreen.CauseEffectRelati
                 tableView.RemoveColumn(unusedParameterValuesColumn);
 
             /// Add columns for each variable (`x*` input process)
-            for (int ind = 0; ind < DataSource.Matrix.Rows; ind++) 
+            for (int ind = 0; ind < DataSource.Matrix.Dimension.Rows; ind++) 
             {
                 var propertyTitle = ind < 10 ? $"x0{ind}" : $"x{ind}";
                 NSTableColumn column = new NSTableColumn(propertyTitle)

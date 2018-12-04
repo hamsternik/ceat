@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 using ceat.Sources.Services;
 
@@ -6,18 +7,27 @@ namespace ceat.Sources.Models
 {
     public class CausalRelationshipMatrix
     {
-        public readonly string[,] Value;
+		public static class C
+		{
+			public static string DefaultComparingResultItem => "-";
+		}
 
-        public CausalRelationshipMatrix(UnexplainedVarianceProportionMatrix matrix, AlgorithmService algoService)
+		public readonly string[,] Value;
+
+		public (int Rows, int Columns) Dimension => ((int)Value.GetLength(0), (int)Value.GetLength(1));
+
+		public string this[int row, int column] => this.Value[row, column];
+
+		public CausalRelationshipMatrix(UnexplainedVarianceProportionMatrix matrix, AlgorithmService algorithms)
         {
-            this.Value = new string[matrix.Rows, matrix.Columns];
-            for (int i = 0; i < matrix.Rows; i++)
+        	this.Value = new string[matrix.Dimension.Rows, matrix.Dimension.Columns];
+            for (int i = 0; i < matrix.Dimension.Rows; i++)
             {
-                for (int j = 0; j < matrix.Columns; j++)
+                for (int j = 0; j < matrix.Dimension.Columns; j++)
                 {
                     if (i != j)
                     {
-                        var comparingResult = algoService.CompareConcurencyModels(
+                        var comparingResult = algorithms.CompareConcurencyModels(
                             matrix[i, j].WorkedPointsError.Value,
                             matrix[j, i].WorkedPointsError.Value
                         );
@@ -26,18 +36,27 @@ namespace ceat.Sources.Models
                     }
                     else
                     {
-                        this.Value[i, j] = "-";
+                        this.Value[i, j] = C.DefaultComparingResultItem;
                     }
                 }
             }
         }
 
-        public int Rows => (int)Value.GetLength(0);
-        public int Columns => (int)Value.GetLength(1);
+		public string[] RowByIndex(int rowIndex)
+		{
+			return Enumerable.Range(0, Dimension.Columns)
+				.Select(columnIndex => this.Value[rowIndex, columnIndex])
+				.ToArray();
+		}
 
-        public string this[int row, int column] => this.Value[row, column];
+		public string[] ColumnByIndex(int columnIndex)
+		{
+			return Enumerable.Range(0, Dimension.Rows)
+				.Select(rowIndex => this.Value[rowIndex, columnIndex])
+				.ToArray();
+		}
 
-        public void Print()
+		public void Print()
         {
             Console.WriteLine("-=== Causal Relationship Matrix ===-");
             for (int i = 0; i < Value.GetLength(0); i++)

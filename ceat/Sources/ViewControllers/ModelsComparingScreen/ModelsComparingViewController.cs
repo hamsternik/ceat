@@ -13,35 +13,33 @@ namespace ceat.Sources.ViewControllers.ModelsComparingScreen
     {
         public readonly UnexplainedVarianceProportionMatrix _UnexplainedVarianceProportionMatrix;
         public readonly CausalRelationshipMatrix _CausalRelationshipMatrix;
-        public readonly AlgorithmService _AlgorithmService;
 
         public ModelsComparingViewModel(
             UnexplainedVarianceProportionMatrix unexplainedVarianceProportionMatrix,
-            CausalRelationshipMatrix causalRelationshipMatrix,
-            AlgorithmService algorithmService
+            CausalRelationshipMatrix causalRelationshipMatrix
         ) {
             this._UnexplainedVarianceProportionMatrix = unexplainedVarianceProportionMatrix;
             this._CausalRelationshipMatrix = causalRelationshipMatrix;
-            this._AlgorithmService = algorithmService;
         }
     }
     #endregion View Model
 
     #region View Controller
-    public partial class ModelsComparingViewController : AppKit.NSViewController
+    public partial class ModelsComparingViewController : NSViewController
     {
         public ModelsComparingViewController(IntPtr handle) : base(handle) { }
         public override void ViewDidLoad() { base.ViewDidLoad(); }
         public override void ViewWillAppear() { base.ViewWillAppear(); UpdateUI(); }
 
-        int i = 0, j = 1;
-        NSWindowController CauseEffectMatrixWindowController;
-
         public ModelsComparingViewModel ViewModel;
+		public AlgorithmService Algorithms;
 
-        #region Xamarin.Mac Partial Methods
+		int i = 0, j = 1;
+		NSWindowController CauseEffectMatrixWindowController;
 
-        partial void DrawPlot(NSButton sender)
+		#region Xamarin.Mac Partial Methods
+
+		partial void DrawPlot(NSButton sender)
         {
             throw new NotImplementedException();
         }
@@ -55,13 +53,13 @@ namespace ceat.Sources.ViewControllers.ModelsComparingScreen
                 j += 1;
             }
 
-            if (j == ViewModel._UnexplainedVarianceProportionMatrix.Columns)
+            if (j == ViewModel._UnexplainedVarianceProportionMatrix.Dimension.Columns)
             {
                 j = 0;
                 i += 1;
             }
 
-            if (i == ViewModel._UnexplainedVarianceProportionMatrix.Rows)
+            if (i == ViewModel._UnexplainedVarianceProportionMatrix.Dimension.Rows)
             {
                 i = 0;
                 j = 1;
@@ -74,7 +72,10 @@ namespace ceat.Sources.ViewControllers.ModelsComparingScreen
         {
             CauseEffectMatrixWindowController = (NSWindowController) Storyboard.InstantiateControllerWithIdentifier("CauseEffectMatrixWindowController");
             var viewController = (CauseEffectMatrixViewController) CauseEffectMatrixWindowController.Window.ContentViewController;
-            viewController.ViewModel = new CauseEffectMatrixViewModel(ViewModel._CausalRelationshipMatrix, ViewModel._AlgorithmService);
+            viewController.ViewModel = new CauseEffectMatrixViewModel(
+            	ViewModel._UnexplainedVarianceProportionMatrix, 
+				ViewModel._CausalRelationshipMatrix
+			);
 
             View.Window.Close();
             CauseEffectMatrixWindowController.ShowWindow(this);
@@ -86,10 +87,10 @@ namespace ceat.Sources.ViewControllers.ModelsComparingScreen
 
         void UpdateUI()
         {
-            string xOut_i = ViewModel._UnexplainedVarianceProportionMatrix[i, j].Ouput.StringValue;
-            string xOut_j = ViewModel._UnexplainedVarianceProportionMatrix[j, i].Ouput.StringValue;
+            string xOut_i = $"x{ViewModel._UnexplainedVarianceProportionMatrix[i, j].OutputParameterIndex}";
+            string xOut_j = $"x{ViewModel._UnexplainedVarianceProportionMatrix[j, i].OutputParameterIndex}";
 
-            string summaryResult = ViewModel._AlgorithmService.MatchParametersRelationship(
+            string summaryResult = Algorithms.MatchParametersRelationship(
                 xOut_i, 
                 xOut_j, 
                 ViewModel._CausalRelationshipMatrix[i, j], 

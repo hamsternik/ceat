@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
 
+using ceat.Sources.Models.Parameters;
+
 namespace ceat.Sources.Models
 {
     public class UnexplainedVarianceProportionList
@@ -12,9 +14,9 @@ namespace ceat.Sources.Models
             {
                 for (int j = 0; j < directories[i].ExcelFiles.Count; j++)
                 {
-                    Value.Add(new UnexplainedVarianceProportion(
-                        new InputParameter(directories[i].ExcelFiles[j].InputParameters[0]),
-                        new OutputParameter(directories[i].ExcelFiles[j].OutputParameter),
+					Value.Add(new UnexplainedVarianceProportion(
+                        new InputParameter(directories[i].ExcelFiles[j]),
+                        new OutputParameter(directories[i].ExcelFiles[j]),
                         new AnalyticalExpression(directories[i].ExcelFiles[j].ActiveSheet),
                         new WorkedPointsErrorValue(directories[i].ExcelFiles[j].ActiveSheet)
                     ));

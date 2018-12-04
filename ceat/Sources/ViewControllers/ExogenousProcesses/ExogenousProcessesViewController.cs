@@ -2,18 +2,18 @@
 using AppKit;
 
 using ceat.Sources.Models;
+using ceat.Sources.Models.Parameters;
 using ceat.Sources.ViewControllers.ExogenousProcesses.Processes;
 
 namespace ceat.Sources.ViewControllers.ExogenousProcesses
 {
 	public class ExogenousProcessesViewModel
 	{
-		// TODO: Should has another properties (CausalRelationshipMatrix doesn't needed here)
-		public readonly CausalRelationshipMatrix Matrix;
+		public readonly ExogenousParameters _ExogenousParameters;
 
-		public ExogenousProcessesViewModel(CausalRelationshipMatrix matrix)
+		public ExogenousProcessesViewModel(ExogenousParameters exogenousParameters)
 		{
-			this.Matrix = matrix;
+			this._ExogenousParameters = exogenousParameters;
 		}
 	}
 
@@ -22,17 +22,15 @@ namespace ceat.Sources.ViewControllers.ExogenousProcesses
 		public ExogenousProcessesViewModel ViewModel;
 
 		public ExogenousProcessesViewController(IntPtr handle) : base(handle) { }
-		public override void ViewDidLoad() { 
-			base.ViewDidLoad();
-
-			SetScreenElementsHiddenness(ViewModel.Matrix.Rows == 0);
-		}
+		public override void ViewDidLoad() { base.ViewDidLoad(); }
 
 		public override void ViewWillAppear()
 		{
 			base.ViewWillAppear();
 
-			ProcessesTableView.DataSource = new ExogenousProcessesDataSource(ViewModel.Matrix);
+			SetScreenElementsHiddenness(ViewModel._ExogenousParameters.Value.Length == 0);
+
+			ProcessesTableView.DataSource = new ExogenousProcessesDataSource(ViewModel._ExogenousParameters.Value.Length);
 			ProcessesTableView.Delegate = new ExogenousProcessesDelegate(
 				(ExogenousProcessesDataSource)ProcessesTableView.DataSource,
 				ProcessesTableView

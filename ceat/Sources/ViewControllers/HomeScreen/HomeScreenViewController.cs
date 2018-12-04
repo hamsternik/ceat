@@ -76,7 +76,7 @@ namespace ceat.Sources.ViewControllers.HomeScreen
             switch (ApplicationWorkMode)
             {
                 case WorkMode.Automatic:
-                    ShowCauseEffectMatrixScreen(causalRelationshipMatrix);
+                    ShowCauseEffectMatrixScreen(unexplainedVarianceProportionMatrix, causalRelationshipMatrix);
                     break;
                 case WorkMode.SemiAutomatic:
                     ShowModelsPairScreen(unexplainedVarianceProportionMatrix, causalRelationshipMatrix);
@@ -107,16 +107,19 @@ namespace ceat.Sources.ViewControllers.HomeScreen
         ) {
             ModelsComparingWindowController = (NSWindowController)Storyboard.InstantiateControllerWithIdentifier("ModelsPairWindowController");
             var viewController = (ModelsComparingViewController)ModelsComparingWindowController.Window.ContentViewController;
-            viewController.ViewModel = new ModelsComparingViewModel(unexplainedVarianceProportionMatrix, causalRelationshipMatrix, algorithmService);
+            viewController.ViewModel = new ModelsComparingViewModel(unexplainedVarianceProportionMatrix, causalRelationshipMatrix);
+			viewController.Algorithms = algorithmService;
 
-            ModelsComparingWindowController.ShowWindow(this);
+			ModelsComparingWindowController.ShowWindow(this);
         }
 
-        void ShowCauseEffectMatrixScreen(CausalRelationshipMatrix causalRelationshipMatrix)
-        {
+        void ShowCauseEffectMatrixScreen(
+        	UnexplainedVarianceProportionMatrix unexplainedVarianceProportionMatrix, 
+			CausalRelationshipMatrix causalRelationshipMatrix
+		) {
             CauseEffectMatrixWindowController = (NSWindowController)Storyboard.InstantiateControllerWithIdentifier("CauseEffectMatrixWindowController");
             var viewController = (CauseEffectMatrixViewController)CauseEffectMatrixWindowController.Window.ContentViewController;
-            viewController.ViewModel = new CauseEffectMatrixViewModel(causalRelationshipMatrix);
+            viewController.ViewModel = new CauseEffectMatrixViewModel(unexplainedVarianceProportionMatrix, causalRelationshipMatrix);
 
             CauseEffectMatrixWindowController.ShowWindow(this);
         }

@@ -29,7 +29,7 @@ namespace ceat.Sources.ViewControllers.ExogenousProcesses.Processes
 			var titlesColumn = tableView.FindTableColumn(new NSString("ExogenousProcessTitlesColumn"));
 			titlesColumn.Width = (nfloat)C.DefaultParameterTextFieldWidth;
 			
-			for (int ind = 0; ind < DataSource.Matrix.Rows; ind++)
+			for (int ind = 0; ind < DataSource.ProcessesCount; ind++)
 			{
 				var title = $"t{ind+1}";
 				NSTableColumn valuesColumn = new NSTableColumn(title)

@@ -14,6 +14,6 @@ namespace ceat.Sources.ViewControllers.CauseEffectMatrixScreen.CauseEffectRelati
             this.Matrix = matrix;
         }
 
-		public override nint GetRowCount(NSTableView tableView) => Matrix.Rows;
+		public override nint GetRowCount(NSTableView tableView) => Matrix.Dimension.Rows;
 	}
 }
