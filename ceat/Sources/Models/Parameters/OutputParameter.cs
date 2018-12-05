@@ -1,4 +1,6 @@
-﻿namespace ceat.Sources.Models.Parameters
+﻿using Foundation;
+
+namespace ceat.Sources.Models.Parameters
 {
     public class OutputParameter
     {

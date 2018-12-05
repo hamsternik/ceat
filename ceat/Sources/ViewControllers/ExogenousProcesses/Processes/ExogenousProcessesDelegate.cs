@@ -1,44 +1,51 @@
 ﻿using System;
 using AppKit;
-using CoreGraphics;
 using Foundation;
+
+using ceat.Sources.Models.Parameters;
 
 namespace ceat.Sources.ViewControllers.ExogenousProcesses.Processes
 {
 	public class ExogenousProcessesDelegate: NSTableViewDelegate
 	{
-		public static class C
-		{
-			public static double DefaultColumnWidth => 75.0;
-			public static double DefaultParameterTextFieldWidth => 55.0;
-			public static double DefaultParameterTextFieldHeight => 17.0;
-		}
-
-		public readonly ExogenousProcessesDataSource DataSource;
+		private readonly ExogenousParameters _ExogenousParameters;
+		private readonly NSTableView _TableView;
 
 		public ExogenousProcessesDelegate(
-			ExogenousProcessesDataSource dataSource,
+			ExogenousParameters exogenousParameters,
 			NSTableView tableView
 		) {
-			this.DataSource = dataSource;
-			SetupTableColumns(tableView);
+			_ExogenousParameters = exogenousParameters;
+			_TableView = tableView;
 		}
 
-		void SetupTableColumns(NSTableView tableView)
+		public override NSView GetViewForItem(NSTableView tableView, NSTableColumn tableColumn, nint row)
 		{
-			var titlesColumn = tableView.FindTableColumn(new NSString("ExogenousProcessTitlesColumn"));
-			titlesColumn.Width = (nfloat)C.DefaultParameterTextFieldWidth;
-			
-			for (int ind = 0; ind < DataSource.ProcessesCount; ind++)
+			var identifier = "CellIdentifier";
+			var view = (NSTextField)tableView.MakeView (identifier, this);
+			if (view == null)
 			{
-				var title = $"t{ind+1}";
-				NSTableColumn valuesColumn = new NSTableColumn(title)
+				view = new NSTextField
 				{
-					Title = title,
-					Width = (nfloat)C.DefaultColumnWidth
+					Identifier = identifier,
+					Alignment = NSTextAlignment.Center,
+					Bordered = false,
+					Selectable = false,
+					Editable = false
 				};
-				tableView.AddColumn(valuesColumn);
 			}
+
+			if (tableColumn.Identifier == "ExogenousProcessTitlesColumn")
+			{
+				view.StringValue = _ExogenousParameters.Value[row].Title;
+			}
+			else /// exogenous process values column
+			{
+				var column = tableView.FindColumn ((NSString)tableColumn.Identifier);
+				view.StringValue = $"{_ExogenousParameters.Value[row].Values[column - 1]}";
+			}
+
+			return view;
 		}
 	}
 }
