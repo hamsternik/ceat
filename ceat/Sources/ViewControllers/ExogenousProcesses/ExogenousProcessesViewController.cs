@@ -50,10 +50,20 @@ namespace ceat.Sources.ViewControllers.ExogenousProcesses
 			for (int i = 0; i < ViewModel._ExogenousParameters.Value[0].Values.Length; i++)
 			{
 				var title = $"t{i + 1}";
+				var header = new NSCell
+				{
+					Title = title,
+					Bordered = true, Highlighted = false,
+					Selectable = false, Editable = false,
+					Alignment = NSTextAlignment.Center,
+					State = NSCellStateValue.On
+				};
+
 				ProcessesTableView.AddColumn(new NSTableColumn
 				{
 					Title = title,
-					Width = (nfloat)C.DefaultColumnWidth
+					Width = (nfloat)C.DefaultColumnWidth,
+					HeaderCell = header
 				});
 			}
 		}

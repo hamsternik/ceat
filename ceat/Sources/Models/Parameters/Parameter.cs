@@ -20,12 +20,13 @@ namespace ceat.Sources.Models.Parameters
 		{
 			get
 			{
-				var values = new List<double>();
 				var rowIndex = Indices.Row;
+				var activeSheetDataRowCollection = File.ActiveSheet.Rows;
+				var values = new List<double>();
 				object current = null;
 				do
 				{
-					current = File.ActiveSheet.Rows[rowIndex - 1][Indices.Column - 1];
+					current = activeSheetDataRowCollection[rowIndex - 1][Indices.Column - 1];
 					if (current != System.DBNull.Value)
 						values.Add((double)current);
 					rowIndex++;

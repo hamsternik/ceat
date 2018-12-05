@@ -29,9 +29,7 @@ namespace ceat.Sources.ViewControllers.ExogenousProcesses.Processes
 				{
 					Identifier = identifier,
 					Alignment = NSTextAlignment.Center,
-					Bordered = false,
-					Selectable = false,
-					Editable = false
+					Bordered = false, Selectable = false, Editable = false
 				};
 			}
 
