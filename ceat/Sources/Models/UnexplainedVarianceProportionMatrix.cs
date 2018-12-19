@@ -26,8 +26,8 @@ namespace ceat.Sources.Models
                     }
                     else
                     {
-                        this.Value[i, j] = null;
-                    }
+						this.Value[i, j] = null;
+					}
                 }
             }
         }

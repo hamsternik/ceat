@@ -8,7 +8,7 @@ namespace ceat.Sources.Services
         public double IndicativeErrorThreshold;
         public double ReliabilityIndexThreshold;
 
-		public AlgorithmService(double indicativeErrorThreshold = 0.8, double reliabilityIndexThreshold = 0.15)
+		public AlgorithmService(double indicativeErrorThreshold = 0.9, double reliabilityIndexThreshold = 0.01)
 		{
 			IndicativeErrorThreshold = indicativeErrorThreshold;
 			ReliabilityIndexThreshold = reliabilityIndexThreshold;
@@ -49,10 +49,10 @@ namespace ceat.Sources.Services
 		public Tuple<int, int> CompareConcurencyModels(double X_i1_uvp, double X_i2_uvp)
 		{
 			Tuple<int, int> result = new Tuple<int, int>(int.MinValue, int.MinValue);
-			double reliabilityIndex = Math.Abs(X_i1_uvp - X_i2_uvp);
 			double indicativeErrorMin = Math.Min(X_i1_uvp, X_i2_uvp);
+			double reliabilityIndex = Math.Abs(X_i1_uvp - X_i2_uvp);
 
-			if (reliabilityIndex >= ReliabilityIndexThreshold) 
+			if (reliabilityIndex >= ReliabilityIndexThreshold)
 			{
 				if (indicativeErrorMin > IndicativeErrorThreshold) 
 				{
@@ -62,11 +62,15 @@ namespace ceat.Sources.Services
 				{
 					if (indicativeErrorMin.Equals(X_i1_uvp))
 					{
-						result = new Tuple<int, int>(1, 0);
+						//result = new Tuple<int, int>(1, 0);
+						//FIXME: Change input database param titles
+						result = new Tuple<int, int>(0, 1);
 					} 
 					else if (indicativeErrorMin.Equals(X_i2_uvp)) 
 					{
-						result =  new Tuple<int, int>(0, 1);
+						//result =  new Tuple<int, int>(0, 1);
+						//FIXME: Change input database param titles
+						result = new Tuple<int, int>(1, 0);
 					}
 				}
 			} 
@@ -96,9 +100,9 @@ namespace ceat.Sources.Services
 			if (directionFromItoJ == -1 && directionFromJtoI == -1) {
 				result = $"Взаимосвязь между {xOut_i} и {xOut_j} не установленна.";
 			} else if (directionFromItoJ == 1 && directionFromJtoI == 0) {
-				result = $"{xOut_i}: следствие параметра {xOut_j}.";
+				result = $"Параметер {xOut_j} зависит от параметра {xOut_i}.";
 			} else if (directionFromItoJ == 0 && directionFromJtoI == 1) {
-				result = $"{xOut_i}: причина параметра {xOut_j}.";
+				result = $"Параметер {xOut_i} зависит от параметра {xOut_j}.";
 			} else if (directionFromItoJ == 1 && directionFromJtoI == 1) {
 				result = $"Двухстороннняя связь между {xOut_i} и {xOut_j}.";
 			} else if (directionFromItoJ == 0 && directionFromJtoI == 0) {

@@ -20,6 +20,9 @@ namespace ceat.Sources.Models
 
 		public CausalRelationshipMatrix(UnexplainedVarianceProportionMatrix matrix, AlgorithmService algorithms)
         {
+        	matrix.Print();
+			Console.WriteLine("-- calculate CausalRelationshipMatrix --");
+        	
         	this.Value = new string[matrix.Dimension.Rows, matrix.Dimension.Columns];
             for (int i = 0; i < matrix.Dimension.Rows; i++)
             {
@@ -27,6 +30,7 @@ namespace ceat.Sources.Models
                 {
                     if (i != j)
                     {
+						Console.WriteLine($"x[{i+1},{j+1}] == {matrix[i, j].WorkedPointsError.Value}, x[{j+1},{i+1}] == {matrix[j, i].WorkedPointsError.Value}");
                         var comparingResult = algorithms.CompareConcurencyModels(
                             matrix[i, j].WorkedPointsError.Value,
                             matrix[j, i].WorkedPointsError.Value

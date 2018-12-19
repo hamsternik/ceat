@@ -990,6 +990,9 @@
                                     <constraint firstItem="gGu-gw-Rz8" firstAttribute="leading" secondItem="w5B-t7-Cft" secondAttribute="trailing" constant="4" id="qhr-it-ZaS"/>
                                 </constraints>
                             </customView>
+                            <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="rNw-WC-id3" userLabel="Lower Horizontal Line">
+                                <rect key="frame" x="0.0" y="46" width="688" height="5"/>
+                            </box>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="0wp-2g-rIM" userLabel="Action Buttons Container View">
                                 <rect key="frame" x="0.0" y="0.0" width="688" height="48"/>
                                 <subviews>
@@ -1040,9 +1043,6 @@
                                     <constraint firstItem="1Eq-EN-JFk" firstAttribute="centerX" secondItem="0wp-2g-rIM" secondAttribute="centerX" id="dOf-sU-wnX"/>
                                 </constraints>
                             </customView>
-                            <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="rNw-WC-id3" userLabel="Lower Horizontal Line">
-                                <rect key="frame" x="0.0" y="46" width="688" height="5"/>
-                            </box>
                         </subviews>
                         <constraints>
                             <constraint firstItem="rNw-WC-id3" firstAttribute="leading" secondItem="xFX-SO-BNb" secondAttribute="leading" id="1BF-MK-QGM"/>

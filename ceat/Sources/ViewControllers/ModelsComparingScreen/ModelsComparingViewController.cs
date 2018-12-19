@@ -87,24 +87,24 @@ namespace ceat.Sources.ViewControllers.ModelsComparingScreen
 
         void UpdateUI()
         {
-            string xOut_i = $"x{ViewModel._UnexplainedVarianceProportionMatrix[i, j].OutputParameterIndex}";
-            string xOut_j = $"x{ViewModel._UnexplainedVarianceProportionMatrix[j, i].OutputParameterIndex}";
+			string xOut_i = $"x{ViewModel._UnexplainedVarianceProportionMatrix[i, j].OutputParameterIndex}";
+			string xOut_j = $"x{ViewModel._UnexplainedVarianceProportionMatrix[j, i].OutputParameterIndex}";
 
-            string summaryResult = Algorithms.MatchParametersRelationship(
-                xOut_i, 
-                xOut_j, 
-                ViewModel._CausalRelationshipMatrix[i, j], 
-                ViewModel._CausalRelationshipMatrix[i, j]
-            );
+			string summaryResult = Algorithms.MatchParametersRelationship(
+				xOut_i,
+				xOut_j,
+				ViewModel._CausalRelationshipMatrix[i, j],
+				ViewModel._CausalRelationshipMatrix[j, i]
+			);
 
-            DispatchQueue.MainQueue.DispatchAsync(() =>
-            {
-                X_i_findModelLabel.StringValue = $"{xOut_i} = {ViewModel._UnexplainedVarianceProportionMatrix[i, j].ModelFormula.Value}";
-                X_j_findModelLabel.StringValue = $"{xOut_j} = {ViewModel._UnexplainedVarianceProportionMatrix[j, i].ModelFormula.Value}";
-                Sigma_i_Label.StringValue = $"{xOut_i}({xOut_j}) Sigma = {ViewModel._UnexplainedVarianceProportionMatrix[i, j].WorkedPointsError.Value}";
-                Sigma_j_Label.StringValue = $"{xOut_j}({xOut_i}) Sigma = {ViewModel._UnexplainedVarianceProportionMatrix[j, i].WorkedPointsError.Value}";
-                SummaryResultLabel.StringValue = summaryResult;
-            });
+			DispatchQueue.MainQueue.DispatchAsync(() =>
+			{
+				X_i_findModelLabel.StringValue = $"{xOut_i} = {ViewModel._UnexplainedVarianceProportionMatrix[i, j].ModelFormula.Value}";
+				X_j_findModelLabel.StringValue = $"{xOut_j} = {ViewModel._UnexplainedVarianceProportionMatrix[j, i].ModelFormula.Value}";
+				Sigma_i_Label.StringValue = $"{xOut_i}({xOut_j}) Sigma = {ViewModel._UnexplainedVarianceProportionMatrix[i, j].WorkedPointsError.Value}";
+				Sigma_j_Label.StringValue = $"{xOut_j}({xOut_i}) Sigma = {ViewModel._UnexplainedVarianceProportionMatrix[j, i].WorkedPointsError.Value}";
+				SummaryResultLabel.StringValue = summaryResult;
+			});
         }
 
         #endregion Xamarin.Mac Partial Methods
