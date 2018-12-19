@@ -652,7 +652,7 @@
         <scene sceneID="R2V-B0-nI4">
             <objects>
                 <windowController id="B8D-0N-5wS" sceneMemberID="viewController">
-                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
+                    <window key="window" title="Home Screen" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="196" y="240" width="480" height="270"/>
@@ -1079,7 +1079,7 @@
         <scene sceneID="0pb-IC-gm0">
             <objects>
                 <windowController storyboardIdentifier="ModelsPairWindowController" showSeguePresentationStyle="single" id="9cM-BQ-HSi" sceneMemberID="viewController">
-                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="HZ8-Cx-vgq">
+                    <window key="window" title="Models Comparing" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="HZ8-Cx-vgq">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="196" y="240" width="480" height="204"/>
@@ -1370,7 +1370,7 @@
         <scene sceneID="poI-Ub-5IP">
             <objects>
                 <windowController storyboardIdentifier="CauseEffectMatrixWindowController" id="pd5-1D-SAa" sceneMemberID="viewController">
-                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="TCW-dx-PZh">
+                    <window key="window" title="Cause-Effect Matrix" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="TCW-dx-PZh">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="196" y="240" width="620" height="315"/>
@@ -1392,7 +1392,7 @@
         <scene sceneID="Xt5-d4-qrR">
             <objects>
                 <windowController storyboardIdentifier="ExogenousProcessesWindowController" id="dRg-Q0-GX3" sceneMemberID="viewController">
-                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="HdY-Vd-QM8">
+                    <window key="window" title="Exogenous Processes" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="HdY-Vd-QM8">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="245" y="301" width="480" height="270"/>
@@ -1409,6 +1409,137 @@
             </objects>
             <point key="canvasLocation" x="2287" y="187"/>
         </scene>
+        <!--Window Controller-->
+        <scene sceneID="7RJ-EI-FVu">
+            <objects>
+                <windowController storyboardIdentifier="ParameterDependenciesWindowController" id="SCm-Jm-c2m" sceneMemberID="viewController">
+                    <window key="window" title="Parameter Dependencies" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="sg4-HY-P97">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+                        <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+                        <rect key="contentRect" x="245" y="301" width="480" height="270"/>
+                        <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
+                        <connections>
+                            <outlet property="delegate" destination="SCm-Jm-c2m" id="N0L-VA-0oB"/>
+                        </connections>
+                    </window>
+                    <connections>
+                        <segue destination="QsQ-Zd-MK6" kind="relationship" relationship="window.shadowedContentViewController" id="ll6-BP-wBM"/>
+                    </connections>
+                </windowController>
+                <customObject id="dl1-MB-Vwj" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2853" y="187"/>
+        </scene>
+        <!--ParameterDependenciesViewController-->
+        <scene sceneID="Z14-DV-7yf">
+            <objects>
+                <viewController title="ParameterDependenciesViewController" storyboardIdentifier="ParameterDependenciesViewController" id="QsQ-Zd-MK6" customClass="ParameterDependenciesViewController" sceneMemberID="viewController">
+                    <view key="view" id="LTJ-qW-u4b">
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="280"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="LPE-Sh-MZp" userLabel="Parameter Dependencies Label">
+                                <rect key="frame" x="162" y="243" width="157" height="17"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Parameter Dependencies" id="fVT-3X-VRW">
+                                    <font key="font" usesAppearanceFont="YES"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Zyh-Bc-6Z6" userLabel="Empty Params Description Label">
+                                <rect key="frame" x="111" y="132" width="259" height="17"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="There is an absence of any dependencies." id="DH1-ck-GdA">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <scrollView autohidesScrollers="YES" horizontalLineScroll="44" horizontalPageScroll="10" verticalLineScroll="44" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Pz-fV-gig">
+                                <rect key="frame" x="0.0" y="0.0" width="480" height="231"/>
+                                <clipView key="contentView" id="7rU-rD-V5j">
+                                    <rect key="frame" x="1" y="0.0" width="478" height="230"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="42" rowSizeStyle="automatic" headerView="7KB-xV-r8k" viewBased="YES" id="0Sm-LM-K8B">
+                                            <rect key="frame" x="0.0" y="0.0" width="478" height="205"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <size key="intercellSpacing" width="3" height="2"/>
+                                            <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
+                                            <tableColumns>
+                                                <tableColumn identifier="ParameterDependencyTitlesColumn" editable="NO" width="176" minWidth="40" maxWidth="1000" id="lrc-Va-j7D" userLabel="Exogenous Process Titles Table Column">
+                                                    <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center" title="Parameter Dependency Titles">
+                                                        <font key="font" metaFont="smallSystem"/>
+                                                        <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
+                                                    </tableHeaderCell>
+                                                    <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" title="Text Cell" id="iEM-ks-TaE">
+                                                        <font key="font" metaFont="system"/>
+                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                    </textFieldCell>
+                                                    <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                                    <prototypeCellViews>
+                                                        <tableCellView id="ReI-26-ciH">
+                                                            <rect key="frame" x="1" y="1" width="176" height="42"/>
+                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                            <subviews>
+                                                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GkG-G4-HUv">
+                                                                    <rect key="frame" x="0.0" y="25" width="176" height="17"/>
+                                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="center" title="Table View Cell" id="rjc-yc-9Ua">
+                                                                        <font key="font" metaFont="systemSemibold" size="12"/>
+                                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                                    </textFieldCell>
+                                                                </textField>
+                                                            </subviews>
+                                                            <connections>
+                                                                <outlet property="textField" destination="GkG-G4-HUv" id="LB4-S5-xyi"/>
+                                                            </connections>
+                                                        </tableCellView>
+                                                    </prototypeCellViews>
+                                                </tableColumn>
+                                            </tableColumns>
+                                        </tableView>
+                                    </subviews>
+                                </clipView>
+                                <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="uSQ-bs-k1Y">
+                                    <rect key="frame" x="1" y="203" width="478" height="16"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                                <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="zz2-NK-elF">
+                                    <rect key="frame" x="224" y="17" width="15" height="102"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                                <tableHeaderView key="headerView" id="7KB-xV-r8k">
+                                    <rect key="frame" x="0.0" y="0.0" width="478" height="25"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                </tableHeaderView>
+                            </scrollView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="4Pz-fV-gig" secondAttribute="bottom" id="5Ix-dR-RKo"/>
+                            <constraint firstItem="LPE-Sh-MZp" firstAttribute="top" secondItem="LTJ-qW-u4b" secondAttribute="top" constant="20" id="6E2-Xr-LhD"/>
+                            <constraint firstItem="Zyh-Bc-6Z6" firstAttribute="centerY" secondItem="LTJ-qW-u4b" secondAttribute="centerY" id="9cb-Uj-nD5"/>
+                            <constraint firstAttribute="trailing" secondItem="4Pz-fV-gig" secondAttribute="trailing" id="Dpr-gi-sEH"/>
+                            <constraint firstItem="4Pz-fV-gig" firstAttribute="leading" secondItem="LTJ-qW-u4b" secondAttribute="leading" id="GB8-wC-bex"/>
+                            <constraint firstItem="LPE-Sh-MZp" firstAttribute="centerX" secondItem="LTJ-qW-u4b" secondAttribute="centerX" id="P72-oN-N6R"/>
+                            <constraint firstItem="4Pz-fV-gig" firstAttribute="top" secondItem="LPE-Sh-MZp" secondAttribute="bottom" constant="12" id="Yet-NG-2FO"/>
+                            <constraint firstItem="Zyh-Bc-6Z6" firstAttribute="centerX" secondItem="LTJ-qW-u4b" secondAttribute="centerX" id="jfR-CC-SEh"/>
+                            <constraint firstItem="Zyh-Bc-6Z6" firstAttribute="top" relation="greaterThanOrEqual" secondItem="LPE-Sh-MZp" secondAttribute="bottom" constant="89" id="v7b-gx-RIN"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="EmptyDescriptionLabel" destination="Zyh-Bc-6Z6" id="4NC-Se-dGM"/>
+                        <outlet property="ParameterDependencyTitlesColumn" destination="lrc-Va-j7D" id="4Lr-gf-Jfe"/>
+                        <outlet property="ProcessesTableView" destination="0Sm-LM-K8B" id="oxn-e0-fv7"/>
+                    </connections>
+                </viewController>
+                <customObject id="zvf-HI-d8d" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2853" y="664"/>
+        </scene>
         <!--ExogenousProcessesViewController-->
         <scene sceneID="o27-ue-UMg">
             <objects>
@@ -1417,7 +1548,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="480" height="269"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="xjT-U7-tYW">
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="xjT-U7-tYW" userLabel="Exogenous Processes Label">
                                 <rect key="frame" x="172" y="232" width="137" height="17"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="Exogenous Processes" id="TfZ-qo-mz4">
                                     <font key="font" usesAppearanceFont="YES"/>
@@ -1518,7 +1649,7 @@
                 </viewController>
                 <customObject id="3H9-F8-OnS" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2297" y="695.5"/>
+            <point key="canvasLocation" x="2287" y="670"/>
         </scene>
     </scenes>
     <resources>

@@ -107,6 +107,8 @@
     <Folder Include="Sources\ViewControllers\ExogenousProcesses\" />
     <Folder Include="Sources\ViewControllers\ExogenousProcesses\Processes\" />
     <Folder Include="Sources\Models\Parameters\" />
+    <Folder Include="Sources\ViewControllers\ParameterDependencies\" />
+    <Folder Include="Sources\ViewControllers\ParameterDependencies\Dependencies\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -160,6 +162,13 @@
     <Compile Include="Sources\Models\Parameters\InputParameter.cs" />
     <Compile Include="Sources\Models\Parameters\OutputParameter.cs" />
     <Compile Include="Sources\Models\Parameters\ExogenousParameters.cs" />
+    <Compile Include="Sources\ViewControllers\ParameterDependencies\ParameterDependenciesViewController.cs" />
+    <Compile Include="Sources\ViewControllers\ParameterDependencies\ParameterDependenciesViewController.designer.cs">
+      <DependentUpon>ParameterDependenciesViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sources\ViewControllers\ParameterDependencies\Dependencies\ParameterDependenciesDataSource.cs" />
+    <Compile Include="Sources\ViewControllers\ParameterDependencies\Dependencies\ParameterDependenciesDelegate.cs" />
+    <Compile Include="Sources\Models\Parameters\ParameterDependencies.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Sources\Main.storyboard" />
