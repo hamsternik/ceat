@@ -79,7 +79,7 @@ namespace ceat.Sources.ViewControllers.CauseEffectMatrixScreen.CauseEffectRelati
             /// Add columns for each variable (`x*` input process)
             for (int ind = 0; ind < DataSource.Matrix.Dimension.Rows; ind++) 
             {
-                var propertyTitle = ind < 10 ? $"x0{ind}" : $"x{ind}";
+                var propertyTitle = ind < 10 ? $"x0{ind + 1}" : $"x{ind + 1}";
                 NSTableColumn column = new NSTableColumn(propertyTitle)
                 {
                     Title = propertyTitle,
